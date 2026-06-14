@@ -1,5 +1,5 @@
 /* ================================================================
-   AUTONOMOUS AI AGENT SYSTEM — JavaScript
+   Autonomy — AI Agent Framework JavaScript
    Author: Bill Liu
    ================================================================ */
 
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounterAnimation();
   initScrollReveal();
   initTerminalAnimation();
+  initScoringBars();
 });
 
 // ── 2. NAV — sticky + scroll class ───────────────────────────
@@ -24,7 +25,7 @@ function initNav() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+  onScroll();
 }
 
 // ── 3. PARTICLE CANVAS ────────────────────────────────────────
@@ -49,7 +50,7 @@ function initParticleCanvas() {
       this.vy = (Math.random() - 0.5) * PARTICLE_SPEED;
       this.r  = Math.random() * 2 + 1;
       this.opacity = Math.random() * 0.5 + 0.2;
-      this.hue = Math.random() > 0.5 ? 195 : 258; // cyan or purple
+      this.hue = Math.random() > 0.5 ? 195 : 258;
     }
 
     update() {
@@ -137,7 +138,7 @@ function initCounterAnimation() {
 
   function animateCounter(el) {
     const target = parseFloat(el.dataset.target);
-    const duration = 1800;
+    const duration = 1600;
     const start = performance.now();
     const isFloat = String(target).includes('.');
 
@@ -156,7 +157,6 @@ function initCounterAnimation() {
     requestAnimationFrame(step);
   }
 
-  // Trigger on hero entry
   const hero = document.getElementById('hero');
   if (!hero) return;
 
@@ -172,11 +172,10 @@ function initCounterAnimation() {
   observer.observe(hero);
 }
 
-// ── 5. SCROLL REVEAL (IntersectionObserver fallback) ─────────
+// ── 5. SCROLL REVEAL ─────────────────────────────────────────
 function initScrollReveal() {
-  // Skip if browser supports native scroll-driven animations
   if (CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
-    return; // Let pure CSS handle it
+    return;
   }
 
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
@@ -196,52 +195,95 @@ function initScrollReveal() {
   revealEls.forEach(el => observer.observe(el));
 }
 
-// ── 6. TERMINAL ANIMATION ─────────────────────────────────────
+// ── 6. SCORING BARS ANIMATION ─────────────────────────────────
+function initScoringBars() {
+  const fills = document.querySelectorAll('.score-bar__fill');
+  if (!fills.length) return;
+
+  // Start bars at 0, animate when in view
+  fills.forEach(fill => {
+    const target = fill.style.getPropertyValue('--pct');
+    fill.style.setProperty('--pct', '0%');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            fill.style.setProperty('--pct', target);
+          }, 200);
+          observer.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(fill);
+  });
+}
+
+// ── 7. TERMINAL ANIMATION — Real Autonomy Event Sequence ──────
 function initTerminalAnimation() {
   const output = document.getElementById('terminal-output');
   if (!output) return;
 
+  // Real events matching AutonomyStore.record_event() call order
   const LINES = [
-    { type: 'cmd',  text: '$ python agent_system.py --task "分析市場趨勢並生成報告"' },
+    { type: 'cmd',  text: '$ python -m autonomy run "為專案撰寫 API 除錯技能並驗證"' },
     { type: 'info', text: '' },
-    { type: 'info', text: '🚀 初始化自律型代理人系統 v2.1.0...' },
-    { type: 'info', text: '✓  載入 LLM 引擎 (Gemini Pro)' },
-    { type: 'info', text: '✓  連接向量記憶庫 (FAISS index: 128k vectors)' },
-    { type: 'info', text: '✓  工具註冊完成 (search, browser, code_exec, file_io)' },
+    { type: 'info', text: '◆  run_started  run_id=a3f9c2e1  step=0' },
+    { type: 'info', text: '   goal: "為專案撰寫 API 除錯技能並驗證"' },
+    { type: 'info', text: '   interface: run  max_steps: 12' },
     { type: 'info', text: '' },
-    { type: 'warn', text: '▶  [主協調代理人] 任務接收：分析市場趨勢並生成報告' },
-    { type: 'out',  text: '   ├─ 子任務 1：網路搜尋最新市場數據 → [研究代理人]' },
-    { type: 'out',  text: '   ├─ 子任務 2：數據分析與視覺化 → [程式代理人]' },
-    { type: 'out',  text: '   └─ 子任務 3：報告撰寫與審查 → [審查代理人]' },
+    { type: 'step', text: '── Step 1 ──────────────────────────────────────' },
+    { type: 'out',  text: '   skills_considered: [api-debugging, code-editing, systematic-debugging]' },
+    { type: 'out',  text: '   skills_selected:   [api-debugging, code-editing]' },
+    { type: 'out',  text: '   skills_loaded:     [api-debugging v0.3.1, code-editing v1.2.0]' },
+    { type: 'out',  text: '   action_intents_generated: 3 candidates (2 from model, 1 from recipe)' },
+    { type: 'out',  text: '   candidates_ranked:' },
+    { type: 'out',  text: '     #1 shell.execute  score=0.742  risk=LOW   evidence=0.80' },
+    { type: 'out',  text: '     #2 filesystem.read score=0.611  risk=LOW   evidence=0.65' },
+    { type: 'out',  text: '     #3 web.fetch       score=0.398  risk=LOW   evidence=0.40' },
+    { type: 'out',  text: '   action_selected: shell.execute  risk_level=low' },
+    { type: 'out',  text: '   approval_decision: allowed=True  reason="low risk, auto-approved"' },
+    { type: 'out',  text: '   observation: succeeded=True  exit_code=0' },
+    { type: 'out',  text: '   outcome_evaluated: execution_ok=True  goal_status=CONTINUE  confidence=1.0' },
+    { type: 'out',  text: '   candidate_recipe_learned: fingerprint=7a2f91b3  evidence_count=1' },
     { type: 'info', text: '' },
-    { type: 'out',  text: '   [研究代理人] 正在搜尋："2024 Q4 科技市場分析"...' },
-    { type: 'out',  text: '   [研究代理人] 已取得 24 篇相關文章，摘要整理中...' },
-    { type: 'out',  text: '   [程式代理人] 執行數據分析腳本...' },
-    { type: 'out',  text: '   [程式代理人] 生成圖表：market_trends_2024.png ✓' },
-    { type: 'out',  text: '   [審查代理人] 品質驗證中...' },
-    { type: 'out',  text: '   [審查代理人] 發現 2 處待改善項目，觸發反思迴路...' },
-    { type: 'warn', text: '   [主協調代理人] 代理人自我修正第 1 輪...' },
-    { type: 'out',  text: '   [審查代理人] 重新驗證通過 ✓' },
+    { type: 'step', text: '── Step 2 ──────────────────────────────────────' },
+    { type: 'out',  text: '   skills_loaded: [api-debugging v0.3.1]' },
+    { type: 'out',  text: '   action_selected: filesystem.write  risk_level=low' },
+    { type: 'out',  text: '   approval_decision: allowed=True' },
+    { type: 'out',  text: '   observation: succeeded=True  evidence=["skills/api-debugging.md written"]' },
+    { type: 'out',  text: '   outcome_evaluated: goal_status=ACHIEVED  confidence=0.95' },
     { type: 'info', text: '' },
-    { type: 'done', text: '✅ 任務完成！報告已生成：market_report_2024.pdf' },
-    { type: 'done', text: '   耗時：47.3s | 工具調用：18 次 | 自主決策：100%' },
+    { type: 'done', text: '◆  run_finished  termination=ACHIEVED  steps_executed=2' },
+    { type: 'done', text: '   reason: "deterministic goal-achieving evidence accepted"' },
+    { type: 'info', text: '' },
+    { type: 'learn','text': '   learning_review: NEW_SKILL  candidate_id=b1e8f2a4  confidence=0.85' },
+    { type: 'learn', text: '   procedure_skill_candidate_created: api-debugging-v2.md (CANDIDATE)' },
+    { type: 'learn', text: '   curator_daemon_run: merge_count=0  (no duplicates detected)' },
   ];
 
   let lineIndex = 0;
   let charIndex = 0;
   let currentLineEl = null;
   let isTyping = false;
-  let animTimer = null;
 
   function createLine(type) {
     const span = document.createElement('span');
-    span.className = `terminal__line terminal__line--${type}`;
+    const classMap = {
+      cmd:   'terminal__line--cmd',
+      info:  'terminal__line--info',
+      step:  'terminal__line--warn',
+      out:   'terminal__line--out',
+      done:  'terminal__line--done',
+      learn: 'terminal__line--learn',
+    };
+    span.className = `terminal__line ${classMap[type] || 'terminal__line--info'}`;
     return span;
   }
 
   function typeChar() {
     if (lineIndex >= LINES.length) {
-      // Add blinking cursor at end
       const cursor = document.createElement('span');
       cursor.className = 'terminal__cursor';
       output.appendChild(cursor);
@@ -259,23 +301,20 @@ function initTerminalAnimation() {
       currentLineEl.textContent += text[charIndex];
       charIndex++;
 
-      const delay = type === 'cmd' ? 28 : text[charIndex - 1] === '.' ? 60 : 6;
-      animTimer = setTimeout(typeChar, delay);
+      const delay = type === 'cmd' ? 22 : text[charIndex - 1] === '.' ? 45 : 5;
+      setTimeout(typeChar, delay);
     } else {
-      // Line done — add newline
       output.appendChild(document.createElement('br'));
       lineIndex++;
       charIndex = 0;
 
-      const pause = type === 'cmd' ? 300 : lineIndex < 7 ? 80 : 200;
-      animTimer = setTimeout(typeChar, pause);
+      const pause = type === 'cmd' ? 400 : type === 'step' ? 350 : type === 'done' ? 200 : lineIndex < 6 ? 60 : 120;
+      setTimeout(typeChar, pause);
     }
 
-    // Auto-scroll
     output.scrollTop = output.scrollHeight;
   }
 
-  // Start animation when section comes into view
   const demoSection = document.getElementById('demo');
   if (!demoSection) return;
 
@@ -287,7 +326,7 @@ function initTerminalAnimation() {
         observer.disconnect();
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.25 });
 
   observer.observe(demoSection);
 }

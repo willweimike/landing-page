@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>自律型 AI 代理人系統 | Bill Liu</title>
-  <meta name="description" content="Bill Liu 打造的自律型 AI 代理人系統——讓 AI 代理人自主感知、決策與行動，解鎖下一世代的智慧自動化。" />
+  <title>Autonomy — 自律型 AI 代理人系統 | Bill Liu</title>
+  <meta name="description" content="Bill Liu 打造的 Autonomy 框架：具備 Beam Search 候選排序、受管行動閘道、程序技能學習與後台技能策展守護程序的自律型 AI 代理人系統。" />
   <meta name="author" content="Bill Liu" />
-  <meta property="og:title" content="自律型 AI 代理人系統 | Bill Liu" />
-  <meta property="og:description" content="讓 AI 代理人自主感知、決策與行動，解鎖下一世代的智慧自動化。" />
+  <meta property="og:title" content="Autonomy — 自律型 AI 代理人系統 | Bill Liu" />
+  <meta property="og:description" content="具備 Beam Search 候選排序、受管行動閘道、程序技能學習與後台技能策展守護程序的自律型 AI 代理人系統。" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,12 +21,13 @@
     <div class="nav__inner">
       <a href="#hero" class="nav__logo" aria-label="回到頂部">
         <span class="nav__logo-icon" aria-hidden="true">⬡</span>
-        <span>AGI<span class="nav__logo-accent">SYS</span></span>
+        <span>Autonomy</span>
       </a>
       <ul class="nav__links" role="list">
-        <li><a href="#about" class="nav__link">關於</a></li>
-        <li><a href="#features" class="nav__link">功能</a></li>
-        <li><a href="#architecture" class="nav__link">架構</a></li>
+        <li><a href="#about" class="nav__link">設計理念</a></li>
+        <li><a href="#features" class="nav__link">核心模組</a></li>
+        <li><a href="#architecture" class="nav__link">系統架構</a></li>
+        <li><a href="#toolsets" class="nav__link">工具集</a></li>
         <li><a href="#author" class="nav__link">作者</a></li>
       </ul>
       <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer" class="btn btn--sm btn--outline nav__cta" id="nav-github-btn">
@@ -44,25 +45,27 @@
     <div class="hero__content">
       <div class="hero__badge" role="text">
         <span class="hero__badge-dot" aria-hidden="true"></span>
-        <span>系統上線中 · LIVE</span>
+        <span class="hero__badge-mono">AgentLoop · v2</span>
+        <span class="hero__badge-sep" aria-hidden="true">|</span>
+        <span>Python · 自律執行中</span>
       </div>
 
       <h1 class="hero__title" id="hero-heading">
-        <span class="hero__title-line hero__title-line--1">自律型</span>
+        <span class="hero__title-line hero__title-line--1">Autonomy</span>
         <span class="hero__title-line hero__title-line--2">
-          <span class="hero__title-gradient">AI 代理人</span>
+          <span class="hero__title-gradient">自律型 AI</span>
         </span>
-        <span class="hero__title-line hero__title-line--3">系統</span>
+        <span class="hero__title-line hero__title-line--3">代理人框架</span>
       </h1>
 
       <p class="hero__subtitle">
-        讓 AI 代理人<strong>自主感知、決策與行動</strong>——<br />
-        從單一任務到複雜多代理協作，解鎖下一世代的智慧自動化。
+        以 <strong>Beam Search 候選排序</strong>、<strong>受管行動閘道</strong>與<strong>程序技能學習</strong>為核心，<br />
+        打造真正能自主感知、規劃、執行並持續進化的 AI 代理人系統。
       </p>
 
       <div class="hero__cta-group">
         <a href="#features" class="btn btn--primary btn--lg" id="hero-explore-btn">
-          探索功能
+          探索核心模組
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
         <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" id="hero-github-btn">
@@ -71,20 +74,25 @@
         </a>
       </div>
 
-      <div class="hero__stats" role="list" aria-label="專案統計">
+      <div class="hero__stats" role="list" aria-label="專案統計數據">
         <div class="hero__stat" role="listitem">
-          <span class="hero__stat-value" data-target="99.9">0</span><span class="hero__stat-unit">%</span>
-          <span class="hero__stat-label">自主決策率</span>
+          <span class="hero__stat-value" data-target="10">0</span>
+          <span class="hero__stat-label">內建 Procedure Skills</span>
         </div>
         <div class="hero__stat-divider" aria-hidden="true"></div>
         <div class="hero__stat" role="listitem">
-          <span class="hero__stat-value" data-target="10">0</span><span class="hero__stat-unit">x</span>
-          <span class="hero__stat-label">效率提升</span>
+          <span class="hero__stat-value" data-target="6">0</span>
+          <span class="hero__stat-label">已實作工具集</span>
         </div>
         <div class="hero__stat-divider" aria-hidden="true"></div>
         <div class="hero__stat" role="listitem">
-          <span class="hero__stat-value" data-target="24">0</span><span class="hero__stat-unit">/7</span>
-          <span class="hero__stat-label">不間斷運行</span>
+          <span class="hero__stat-value" data-target="5">0</span>
+          <span class="hero__stat-label">維評分維度</span>
+        </div>
+        <div class="hero__stat-divider" aria-hidden="true"></div>
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-value" data-target="3">0</span>
+          <span class="hero__stat-label">Beam Width</span>
         </div>
       </div>
     </div>
@@ -99,60 +107,73 @@
   <section class="about section" id="about" aria-labelledby="about-heading">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">關於專案</div>
-        <h2 class="section-title" id="about-heading">什麼是自律型 AI 代理人？</h2>
-        <p class="section-desc">超越傳統 AI 問答模式——代理人擁有目標導向的自主行動能力</p>
+        <div class="section-tag">設計理念</div>
+        <h2 class="section-title" id="about-heading">AgentLoop：自導向任務迴圈</h2>
+        <p class="section-desc">每個執行回合（Turn）依固定五步驟推進，直到目標達成、被封鎖或超過步數上限</p>
       </div>
 
       <div class="about__grid">
         <div class="about__text reveal-left">
           <p class="about__lead">
-            自律型 AI 代理人（Autonomous AI Agent）是一種能夠<mark>感知環境、制定計畫、執行行動</mark>並從結果中持續學習的 AI 系統。
+            <mark>AgentLoop</mark> 是 Autonomy 的核心驅動器——一個「自導向任務迴圈」，不需要人工介入即可從目標出發，自主選擇工具、執行行動並從結果中學習。
           </p>
           <p class="about__body">
-            與傳統 LLM 不同，代理人系統配備了工具使用能力（Tool Use）、記憶管理（Memory）、以及多步驟推理（Multi-step Reasoning），讓 AI 能夠處理真實世界中複雜、動態的任務序列。
+            每個 Turn 的執行流程：①從技能庫選取相關 <code>ProcedureSkill</code>，②由 LLM 提案 + RecipeEngine 產出候選動作路徑，③以 5 維評分排序（Beam Width=3），④透過 <code>ActionGateway</code> 受管執行，⑤評估結果並觸發學習。
           </p>
           <p class="about__body">
-            本系統實現了多代理協作框架，每個代理人擁有獨立的角色設定與職責分工，透過結構化訊息傳遞協調完成高階任務。
+            終止條件明確：<code>ACHIEVED</code>（目標完成）、<code>BLOCKED</code>（無法繼續）、<code>NO_CANDIDATES</code>、<code>APPROVAL_DENIED</code>、<code>MAX_STEPS_REACHED</code>、或 <code>FAILED</code>——系統永遠不會陷入無限循環。
           </p>
           <div class="about__pills">
-            <span class="pill pill--cyan">LLM 驅動</span>
-            <span class="pill pill--purple">工具調用</span>
-            <span class="pill pill--blue">記憶系統</span>
-            <span class="pill pill--teal">多代理協作</span>
-            <span class="pill pill--pink">自我反思</span>
+            <span class="pill pill--cyan">AgentLoop</span>
+            <span class="pill pill--purple">ActionGateway</span>
+            <span class="pill pill--blue">CandidateSelector</span>
+            <span class="pill pill--teal">LearningLoop</span>
+            <span class="pill pill--pink">CuratorDaemon</span>
           </div>
         </div>
 
         <div class="about__visual reveal-right">
-          <div class="agent-loop" aria-label="代理人感知-規劃-行動循環示意圖">
-            <div class="agent-loop__center">
-              <span class="agent-loop__icon" aria-hidden="true">🤖</span>
-              <span>AI Agent</span>
+          <!-- Turn flow diagram -->
+          <div class="turn-flow" aria-label="AgentLoop 每個 Turn 的執行流程">
+            <div class="turn-flow__step" id="tf-skills">
+              <div class="turn-flow__icon">📚</div>
+              <div class="turn-flow__content">
+                <span class="turn-flow__name">disclose_procedure_skills()</span>
+                <span class="turn-flow__desc">選取相關技能</span>
+              </div>
             </div>
-            <div class="agent-loop__node agent-loop__node--top" style="--angle:270deg" aria-label="感知">
-              <span class="agent-loop__node-icon">👁️</span>
-              <span>感知</span>
+            <div class="turn-flow__arrow" aria-hidden="true">↓</div>
+            <div class="turn-flow__step" id="tf-candidates">
+              <div class="turn-flow__icon">💡</div>
+              <div class="turn-flow__content">
+                <span class="turn-flow__name">generate_candidates()</span>
+                <span class="turn-flow__desc">LLM 提案 + Recipe Engine</span>
+              </div>
             </div>
-            <div class="agent-loop__node agent-loop__node--right" style="--angle:30deg" aria-label="規劃">
-              <span class="agent-loop__node-icon">🧠</span>
-              <span>規劃</span>
+            <div class="turn-flow__arrow" aria-hidden="true">↓</div>
+            <div class="turn-flow__step" id="tf-rank">
+              <div class="turn-flow__icon">📊</div>
+              <div class="turn-flow__content">
+                <span class="turn-flow__name">rank_candidates()</span>
+                <span class="turn-flow__desc">5 維評分 · Beam Width=3</span>
+              </div>
             </div>
-            <div class="agent-loop__node agent-loop__node--left" style="--angle:150deg" aria-label="行動">
-              <span class="agent-loop__node-icon">⚡</span>
-              <span>行動</span>
+            <div class="turn-flow__arrow" aria-hidden="true">↓</div>
+            <div class="turn-flow__step" id="tf-execute">
+              <div class="turn-flow__icon">⚡</div>
+              <div class="turn-flow__content">
+                <span class="turn-flow__name">ActionGateway.execute_next()</span>
+                <span class="turn-flow__desc">ApprovalPolicy 授權 · 受管執行</span>
+              </div>
             </div>
-            <svg class="agent-loop__svg" viewBox="0 0 300 300" aria-hidden="true">
-              <circle cx="150" cy="150" r="100" fill="none" stroke="url(#loopGrad)" stroke-width="1.5" stroke-dasharray="628" stroke-dashoffset="628">
-                <animate attributeName="stroke-dashoffset" from="628" to="0" dur="3s" repeatCount="indefinite" />
-              </circle>
-              <defs>
-                <linearGradient id="loopGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#00d4ff" />
-                  <stop offset="100%" stop-color="#7c3aed" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <div class="turn-flow__arrow" aria-hidden="true">↓</div>
+            <div class="turn-flow__step" id="tf-learn">
+              <div class="turn-flow__icon">🧠</div>
+              <div class="turn-flow__content">
+                <span class="turn-flow__name">evaluate_outcome() + learn()</span>
+                <span class="turn-flow__desc">結果評估 · Recipe 學習</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -163,89 +184,246 @@
   <section class="features section" id="features" aria-labelledby="features-heading">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">核心功能</div>
-        <h2 class="section-title" id="features-heading">系統核心能力</h2>
-        <p class="section-desc">六大模組構成完整的自律型代理人生態系統</p>
+        <div class="section-tag">核心模組</div>
+        <h2 class="section-title" id="features-heading">十大技術特點</h2>
+        <p class="section-desc">每個特點都直接對應 Autonomy 原始碼中的具體實作</p>
       </div>
 
       <div class="features__grid">
-        <article class="feature-card reveal-up" style="--delay:0ms" id="feature-perception">
-          <div class="feature-card__icon-wrap" aria-hidden="true">
-            <div class="feature-card__icon">👁️</div>
-          </div>
-          <h3 class="feature-card__title">多模態感知</h3>
-          <p class="feature-card__desc">整合文字、圖像、網頁、API 等多種輸入來源，讓代理人全面理解任務情境與執行環境。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">Vision API</li>
-            <li class="tag">Web Scraping</li>
-            <li class="tag">RAG</li>
-          </ul>
-        </article>
 
-        <article class="feature-card reveal-up" style="--delay:100ms" id="feature-planning">
-          <div class="feature-card__icon-wrap" aria-hidden="true">
-            <div class="feature-card__icon">🧠</div>
-          </div>
-          <h3 class="feature-card__title">自主規劃推理</h3>
-          <p class="feature-card__desc">採用 Chain-of-Thought 與 ReAct 推理框架，代理人能夠分解複雜目標、動態調整執行計畫。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">CoT</li>
-            <li class="tag">ReAct</li>
-            <li class="tag">Tree of Thought</li>
-          </ul>
-        </article>
-
-        <article class="feature-card reveal-up" style="--delay:200ms" id="feature-tools">
-          <div class="feature-card__icon-wrap" aria-hidden="true">
-            <div class="feature-card__icon">🛠️</div>
-          </div>
-          <h3 class="feature-card__title">工具調用系統</h3>
-          <p class="feature-card__desc">透過標準化工具介面，代理人可調用搜尋引擎、程式執行器、資料庫查詢等外部能力，突破純 LLM 限制。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">Function Calling</li>
-            <li class="tag">Code Interpreter</li>
-            <li class="tag">MCP</li>
-          </ul>
-        </article>
-
-        <article class="feature-card reveal-up" style="--delay:300ms" id="feature-memory">
-          <div class="feature-card__icon-wrap" aria-hidden="true">
-            <div class="feature-card__icon">💾</div>
-          </div>
-          <h3 class="feature-card__title">分層記憶架構</h3>
-          <p class="feature-card__desc">結合短期工作記憶、長期向量記憶與外部知識庫，讓代理人跨任務持續積累知識與經驗。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">Vector DB</li>
-            <li class="tag">Episodic Memory</li>
-            <li class="tag">Semantic Cache</li>
-          </ul>
-        </article>
-
-        <article class="feature-card reveal-up" style="--delay:400ms" id="feature-multi-agent">
-          <div class="feature-card__icon-wrap" aria-hidden="true">
-            <div class="feature-card__icon">🔗</div>
-          </div>
-          <h3 class="feature-card__title">多代理協作</h3>
-          <p class="feature-card__desc">Orchestrator-Worker 架構讓多個專職代理人並行協作，透過結構化訊息傳遞完成超出單一代理人能力範圍的複雜任務。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">Orchestration</li>
-            <li class="tag">Message Passing</li>
-            <li class="tag">Consensus</li>
-          </ul>
-        </article>
-
-        <article class="feature-card reveal-up" style="--delay:500ms" id="feature-reflection">
+        <article class="feature-card reveal-up" style="--delay:0ms" id="feature-agentloop">
           <div class="feature-card__icon-wrap" aria-hidden="true">
             <div class="feature-card__icon">🔄</div>
           </div>
-          <h3 class="feature-card__title">自我反思改進</h3>
-          <p class="feature-card__desc">代理人會自動評估執行結果、識別錯誤根因，並透過反思迴路持續優化行動策略，實現持續學習進化。</p>
-          <ul class="feature-card__tags" aria-label="相關技術">
-            <li class="tag">Reflection</li>
-            <li class="tag">Self-Critique</li>
-            <li class="tag">RLHF</li>
+          <h3 class="feature-card__title">自導向代理人迴圈</h3>
+          <p class="feature-card__desc">
+            <code>AgentLoop.run(goal, max_steps=12)</code> 啟動後完全自主執行，每步驟透過 <code>run_turn()</code> 推進。支援互動模式（<code>interactive=True</code>）與批次模式，所有事件均以 <code>run_id</code> 記錄於 <code>AutonomyStore</code>。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">AgentLoop</li>
+            <li class="tag">RunState</li>
+            <li class="tag">TerminationReason</li>
           </ul>
         </article>
+
+        <article class="feature-card reveal-up" style="--delay:80ms" id="feature-gateway">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🛡️</div>
+          </div>
+          <h3 class="feature-card__title">受管行動閘道</h3>
+          <p class="feature-card__desc">
+            所有工具呼叫必須通過 <code>ActionGateway</code> 的 <code>ApprovalPolicy</code> 授權。每個動作帶有 <code>RiskLevel</code>（LOW / MEDIUM / HIGH）、<code>expected_effect</code> 與 <code>verification_plan</code>，確保執行可控、可審計。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">ActionGateway</li>
+            <li class="tag">ApprovalPolicy</li>
+            <li class="tag">RiskLevel</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:160ms" id="feature-beamsearch">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📊</div>
+          </div>
+          <h3 class="feature-card__title">5 維 Beam Search 評分</h3>
+          <p class="feature-card__desc">
+            <code>CandidateSelector</code> 以 evidence_strength（+0.30）、purpose（+0.10）、risk（−0.35）、side_effects（−0.20）、penalty（−1.0）五個維度計算總分，選出前 <code>beam_width=3</code> 名候選路徑送往執行。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">CandidateSelector</li>
+            <li class="tag">CandidatePath</li>
+            <li class="tag">beam_width=3</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:240ms" id="feature-outcome">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🎯</div>
+          </div>
+          <h3 class="feature-card__title">混合結果評估</h3>
+          <p class="feature-card__desc">
+            <code>DeterministicOutcomeEvaluator</code> 優先判斷執行失敗（直接 BLOCKED），成功但結果不確定時再交由 <code>ModelAssistedOutcomeEvaluator</code> 呼叫 LLM 語義判斷——最小化昂貴的模型呼叫次數。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">DeterministicEvaluator</li>
+            <li class="tag">ModelAssistedEvaluator</li>
+            <li class="tag">GoalStatus</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:320ms" id="feature-skills">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📚</div>
+          </div>
+          <h3 class="feature-card__title">程序技能庫（10 內建）</h3>
+          <p class="feature-card__desc">
+            <code>ProcedureSkillLibrary</code> 內建 10 個技能（api-debugging、browser-navigation、code-editing、codebase-documentation、process-management、systematic-debugging、technical-spike、TDD、web-research、website-inspection），每步動態選取最相關技能載入。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">ProcedureSkillLibrary</li>
+            <li class="tag">ProcedureSkill</li>
+            <li class="tag">requires_tools</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:400ms" id="feature-learning">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🧠</div>
+          </div>
+          <h3 class="feature-card__title">後執行學習迴路</h3>
+          <p class="feature-card__desc">
+            每次 Run 結束後，<code>LearningLoop.review_run()</code> 自動觸發：若結果為 ACHIEVED 且有 ≥2 個成功步驟，自動起草新 <code>ProcedureSkillDraft</code>（信心度 0.85），生成 <code>LearningProposal</code> 等待審核。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">LearningLoop</li>
+            <li class="tag">LearningProposal</li>
+            <li class="tag">confidence=0.85</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:480ms" id="feature-recipe">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">⚗️</div>
+          </div>
+          <h3 class="feature-card__title">Action Recipe 引擎</h3>
+          <p class="feature-card__desc">
+            <code>RecipeEngine</code> 監控每個成功動作的 SHA-256 指紋——當同一動作成功次數 ≥ <code>candidate_threshold=2</code>，自動升格為候選 Recipe，下次直接作為行動選項（source=<code>action_skill</code>）提出，無需 LLM 重新推理。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">RecipeEngine</li>
+            <li class="tag">ActionRecipe</li>
+            <li class="tag">action fingerprint</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:560ms" id="feature-curator">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🗂️</div>
+          </div>
+          <h3 class="feature-card__title">技能策展守護程序</h3>
+          <p class="feature-card__desc">
+            每次 Run 結束後，<code>CuratorDaemon</code> 在後台執行緒（<code>daemon=True</code>）非同步啟動 <code>SkillCurator.apply_auto_merges()</code>，自動偵測並合併重複（信心 0.95）或子集（信心 0.90）技能，防止技能庫膨脹。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">CuratorDaemon</li>
+            <li class="tag">SkillCurator</li>
+            <li class="tag">async merge</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:640ms" id="feature-toolsets">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🧰</div>
+          </div>
+          <h3 class="feature-card__title">可擴展工具集目錄</h3>
+          <p class="feature-card__desc">
+            <code>TOOLSET_CATALOG</code> 涵蓋 6 個已實作工具集：file（5 工具）、terminal（6 工具）、browser（11 工具）、web（2 工具）、search、skills，以及 memory、delegate、cronjob、computer_use 等規劃中工具集。預設啟用：file、terminal、search、skills。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">ToolsetCatalog</li>
+            <li class="tag">ToolRegistry</li>
+            <li class="tag">ToolsetConfigStore</li>
+          </ul>
+        </article>
+
+        <article class="feature-card reveal-up" style="--delay:720ms" id="feature-store">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📡</div>
+          </div>
+          <h3 class="feature-card__title">完整事件溯源稽核</h3>
+          <p class="feature-card__desc">
+            <code>AutonomyStore</code> 以 Event Sourcing 模式記錄整個執行生命週期：run_started → skills_selected → candidates_ranked → action_selected → approval_decision → observation → outcome_evaluated → recipe_learned → learning_review → run_finished，完整可重播。
+          </p>
+          <ul class="feature-card__tags" aria-label="相關類別">
+            <li class="tag">AutonomyStore</li>
+            <li class="tag">record_event()</li>
+            <li class="tag">Event Sourcing</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCORING ─── -->
+  <section class="scoring section" id="scoring" aria-labelledby="scoring-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">CandidateSelector</div>
+        <h2 class="section-title" id="scoring-heading">5 維候選評分系統</h2>
+        <p class="section-desc">每個候選動作路徑依以下公式計算總分，選出前 3 名送往執行</p>
+      </div>
+
+      <div class="scoring__layout reveal-up">
+        <div class="scoring__formula" aria-label="評分公式">
+          <div class="formula-box">
+            <span class="formula-box__label">score =</span>
+            <div class="formula-terms">
+              <span class="formula-term formula-term--pos">evidence_strength × <strong>+0.30</strong></span>
+              <span class="formula-term formula-term--pos">purpose × <strong>+0.10</strong></span>
+              <span class="formula-term formula-term--neg">risk × <strong>−0.35</strong></span>
+              <span class="formula-term formula-term--neg">side_effects × <strong>−0.20</strong></span>
+              <span class="formula-term formula-term--neg">penalty × <strong>−1.0</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scoring__bars" role="list" aria-label="各維度評分權重">
+          <div class="score-bar" role="listitem">
+            <div class="score-bar__header">
+              <span class="score-bar__name">evidence_strength</span>
+              <span class="score-bar__weight score-bar__weight--pos">+0.30</span>
+            </div>
+            <div class="score-bar__track" aria-hidden="true">
+              <div class="score-bar__fill score-bar__fill--pos" style="--pct:60%"></div>
+            </div>
+            <span class="score-bar__desc">動作有充分依據與證據加分</span>
+          </div>
+
+          <div class="score-bar" role="listitem">
+            <div class="score-bar__header">
+              <span class="score-bar__name">purpose</span>
+              <span class="score-bar__weight score-bar__weight--pos">+0.10</span>
+            </div>
+            <div class="score-bar__track" aria-hidden="true">
+              <div class="score-bar__fill score-bar__fill--pos" style="--pct:20%"></div>
+            </div>
+            <span class="score-bar__desc">有明確目的說明加分</span>
+          </div>
+
+          <div class="score-bar" role="listitem">
+            <div class="score-bar__header">
+              <span class="score-bar__name">risk</span>
+              <span class="score-bar__weight score-bar__weight--neg">−0.35</span>
+            </div>
+            <div class="score-bar__track" aria-hidden="true">
+              <div class="score-bar__fill score-bar__fill--neg" style="--pct:70%"></div>
+            </div>
+            <span class="score-bar__desc">HIGH risk 扣最多，LOW 不扣分</span>
+          </div>
+
+          <div class="score-bar" role="listitem">
+            <div class="score-bar__header">
+              <span class="score-bar__name">side_effects</span>
+              <span class="score-bar__weight score-bar__weight--neg">−0.20</span>
+            </div>
+            <div class="score-bar__track" aria-hidden="true">
+              <div class="score-bar__fill score-bar__fill--neg" style="--pct:40%"></div>
+            </div>
+            <span class="score-bar__desc">有副作用的動作扣分</span>
+          </div>
+
+          <div class="score-bar" role="listitem">
+            <div class="score-bar__header">
+              <span class="score-bar__name">penalty</span>
+              <span class="score-bar__weight score-bar__weight--neg">−1.0</span>
+            </div>
+            <div class="score-bar__track" aria-hidden="true">
+              <div class="score-bar__fill score-bar__fill--neg" style="--pct:100%"></div>
+            </div>
+            <span class="score-bar__desc">已執行過或工具不可用，大量扣分</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -254,110 +432,237 @@
   <section class="architecture section" id="architecture" aria-labelledby="arch-heading">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">技術架構</div>
-        <h2 class="section-title" id="arch-heading">系統架構設計</h2>
-        <p class="section-desc">模組化、可擴展的代理人執行框架</p>
+        <div class="section-tag">系統架構</div>
+        <h2 class="section-title" id="arch-heading">真實模組關係圖</h2>
+        <p class="section-desc">每個方塊對應 Autonomy 原始碼中的實際類別或模組</p>
       </div>
 
       <div class="arch__diagram reveal-up">
-        <div class="arch__layer arch__layer--orchestrator">
-          <div class="arch__layer-label">Orchestrator Layer</div>
-          <div class="arch__node arch__node--main" id="arch-orchestrator">
+        <!-- Row 1: Entry Point -->
+        <div class="arch__layer arch__layer--entry">
+          <div class="arch__layer-label">Entry · Goal Input</div>
+          <div class="arch__node arch__node--entry" id="arch-goal">
             <span class="arch__node-icon" aria-hidden="true">🎯</span>
-            <span class="arch__node-title">主協調代理人</span>
-            <span class="arch__node-sub">任務分解 · 資源調配 · 結果整合</span>
+            <span class="arch__node-title">AgentLoop.run(goal)</span>
+            <span class="arch__node-sub">max_steps=12 · UUID run_id</span>
           </div>
         </div>
 
-        <div class="arch__arrows" aria-hidden="true">
-          <svg viewBox="0 0 800 80" class="arch__arrows-svg">
-            <defs>
-              <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="url(#arrowGrad)" />
-              </marker>
-              <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#00d4ff" />
-                <stop offset="100%" stop-color="#7c3aed" />
-              </linearGradient>
-            </defs>
-            <line x1="133" y1="10" x2="133" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-            <line x1="400" y1="10" x2="400" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-            <line x1="667" y1="10" x2="667" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-          </svg>
-        </div>
+        <div class="arch__conn-line" aria-hidden="true"></div>
 
-        <div class="arch__layer arch__layer--workers">
-          <div class="arch__layer-label">Worker Agents Layer</div>
-          <div class="arch__workers-grid">
-            <div class="arch__node arch__node--worker" id="arch-research">
-              <span class="arch__node-icon" aria-hidden="true">🔍</span>
-              <span class="arch__node-title">研究代理人</span>
-              <span class="arch__node-sub">資料蒐集與分析</span>
+        <!-- Row 2: Turn Loop -->
+        <div class="arch__layer arch__layer--turn">
+          <div class="arch__layer-label">Turn Loop · run_turn()</div>
+          <div class="arch__turn-grid">
+            <div class="arch__node arch__node--turn" id="arch-skills-node">
+              <span class="arch__node-icon" aria-hidden="true">📚</span>
+              <span class="arch__node-title">ProcedureSkillLibrary</span>
+              <span class="arch__node-sub">index() · load_selected()</span>
             </div>
-            <div class="arch__node arch__node--worker" id="arch-code">
-              <span class="arch__node-icon" aria-hidden="true">💻</span>
-              <span class="arch__node-title">程式代理人</span>
-              <span class="arch__node-sub">程式碼生成與執行</span>
+            <div class="arch__node arch__node--turn" id="arch-recipe-node">
+              <span class="arch__node-icon" aria-hidden="true">⚗️</span>
+              <span class="arch__node-title">RecipeEngine</span>
+              <span class="arch__node-sub">candidates_for() · learn()</span>
             </div>
-            <div class="arch__node arch__node--worker" id="arch-critic">
-              <span class="arch__node-icon" aria-hidden="true">🧐</span>
-              <span class="arch__node-title">審查代理人</span>
-              <span class="arch__node-sub">品質驗證與反思</span>
+            <div class="arch__node arch__node--turn" id="arch-selector-node">
+              <span class="arch__node-icon" aria-hidden="true">📊</span>
+              <span class="arch__node-title">CandidateSelector</span>
+              <span class="arch__node-sub">beam_width=3 · 5-dim score</span>
             </div>
           </div>
         </div>
 
-        <div class="arch__arrows" aria-hidden="true">
-          <svg viewBox="0 0 800 80" class="arch__arrows-svg">
-            <line x1="133" y1="10" x2="133" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-            <line x1="400" y1="10" x2="400" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-            <line x1="667" y1="10" x2="667" y2="70" stroke="url(#arrowGrad)" stroke-width="1.5" marker-end="url(#arrowhead)" />
-          </svg>
+        <div class="arch__conn-line" aria-hidden="true"></div>
+
+        <!-- Row 3: Execution -->
+        <div class="arch__layer arch__layer--exec">
+          <div class="arch__layer-label">Execution · ActionGateway</div>
+          <div class="arch__exec-grid">
+            <div class="arch__node arch__node--exec" id="arch-approval">
+              <span class="arch__node-icon" aria-hidden="true">🛡️</span>
+              <span class="arch__node-title">ApprovalPolicy</span>
+              <span class="arch__node-sub">authorize(action, interactive)</span>
+            </div>
+            <div class="arch__node arch__node--exec arch__node--main" id="arch-gateway">
+              <span class="arch__node-icon" aria-hidden="true">⚡</span>
+              <span class="arch__node-title">ActionGateway</span>
+              <span class="arch__node-sub">execute_next() · risk assessment</span>
+            </div>
+            <div class="arch__node arch__node--exec" id="arch-tools-node">
+              <span class="arch__node-icon" aria-hidden="true">🧰</span>
+              <span class="arch__node-title">ToolRegistry</span>
+              <span class="arch__node-sub">execute(action) → Observation</span>
+            </div>
+          </div>
         </div>
 
-        <div class="arch__layer arch__layer--tools">
-          <div class="arch__layer-label">Tool & Memory Layer</div>
-          <div class="arch__tools-grid">
-            <div class="arch__tool-chip" id="arch-tool-search">🔎 搜尋引擎</div>
-            <div class="arch__tool-chip" id="arch-tool-code">⚙️ 程式執行</div>
-            <div class="arch__tool-chip" id="arch-tool-vector">🗄️ 向量記憶庫</div>
-            <div class="arch__tool-chip" id="arch-tool-api">🌐 外部 API</div>
-            <div class="arch__tool-chip" id="arch-tool-files">📁 檔案系統</div>
-            <div class="arch__tool-chip" id="arch-tool-browser">🌍 瀏覽器控制</div>
+        <div class="arch__conn-line" aria-hidden="true"></div>
+
+        <!-- Row 4: Post-run -->
+        <div class="arch__layer arch__layer--postrun">
+          <div class="arch__layer-label">Post-Run · finish_run()</div>
+          <div class="arch__postrun-grid">
+            <div class="arch__node arch__node--postrun" id="arch-eval-node">
+              <span class="arch__node-icon" aria-hidden="true">🎯</span>
+              <span class="arch__node-title">OutcomeEvaluator</span>
+              <span class="arch__node-sub">Deterministic + Model-assisted</span>
+            </div>
+            <div class="arch__node arch__node--postrun" id="arch-learning-node">
+              <span class="arch__node-icon" aria-hidden="true">🧠</span>
+              <span class="arch__node-title">LearningLoop</span>
+              <span class="arch__node-sub">review_run() · draft skill</span>
+            </div>
+            <div class="arch__node arch__node--postrun" id="arch-curator-node">
+              <span class="arch__node-icon" aria-hidden="true">🗂️</span>
+              <span class="arch__node-title">CuratorDaemon</span>
+              <span class="arch__node-sub">async thread · auto-merge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch__conn-line" aria-hidden="true"></div>
+
+        <!-- Row 5: Store -->
+        <div class="arch__layer arch__layer--store">
+          <div class="arch__layer-label">Persistence · AutonomyStore</div>
+          <div class="arch__store-chips">
+            <div class="arch__tool-chip" id="store-runs">📁 runs</div>
+            <div class="arch__tool-chip" id="store-events">📡 events</div>
+            <div class="arch__tool-chip" id="store-recipes">⚗️ recipes</div>
+            <div class="arch__tool-chip" id="store-skills">📚 skills</div>
+            <div class="arch__tool-chip" id="store-proposals">💡 proposals</div>
+            <div class="arch__tool-chip" id="store-curator">🗂️ curator_log</div>
           </div>
         </div>
       </div>
 
-      <!-- Tech Stack -->
+      <!-- Real Toolset Catalog -->
       <div class="tech-stack reveal-up">
-        <h3 class="tech-stack__title">技術堆疊</h3>
+        <h3 class="tech-stack__title">TOOLSET_CATALOG — 實際工具集</h3>
         <div class="tech-stack__grid">
-          <div class="tech-item" id="tech-gemini">
-            <span class="tech-item__icon" aria-hidden="true">✦</span>
-            <span>Gemini</span>
+          <div class="tech-item tech-item--live" id="tech-file">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">file</span>
+              <span class="tech-item__sub">read / list / write / patch / search_files</span>
+            </div>
           </div>
-          <div class="tech-item" id="tech-python">
-            <span class="tech-item__icon" aria-hidden="true">🐍</span>
-            <span>Python</span>
+          <div class="tech-item tech-item--live" id="tech-terminal">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">terminal</span>
+              <span class="tech-item__sub">shell.execute / process.start/poll/log/wait/stop</span>
+            </div>
           </div>
-          <div class="tech-item" id="tech-langchain">
-            <span class="tech-item__icon" aria-hidden="true">⛓️</span>
-            <span>LangChain</span>
+          <div class="tech-item tech-item--live" id="tech-browser">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">browser</span>
+              <span class="tech-item__sub">navigate / snapshot / click / type / scroll / screenshot…</span>
+            </div>
           </div>
-          <div class="tech-item" id="tech-faiss">
-            <span class="tech-item__icon" aria-hidden="true">🗂️</span>
-            <span>FAISS</span>
+          <div class="tech-item tech-item--live" id="tech-web">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">web</span>
+              <span class="tech-item__sub">web.fetch / web.extract</span>
+            </div>
           </div>
-          <div class="tech-item" id="tech-fastapi">
-            <span class="tech-item__icon" aria-hidden="true">⚡</span>
-            <span>FastAPI</span>
+          <div class="tech-item tech-item--live" id="tech-search">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">search</span>
+              <span class="tech-item__sub">search.text</span>
+            </div>
           </div>
-          <div class="tech-item" id="tech-docker">
-            <span class="tech-item__icon" aria-hidden="true">🐳</span>
-            <span>Docker</span>
+          <div class="tech-item tech-item--live" id="tech-skills-tool">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">skills</span>
+              <span class="tech-item__sub">procedure skill 管理與發現</span>
+            </div>
+          </div>
+          <div class="tech-item tech-item--planned" id="tech-memory">
+            <span class="tech-item__dot tech-item__dot--planned" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">memory</span>
+              <span class="tech-item__sub">規劃中</span>
+            </div>
+          </div>
+          <div class="tech-item tech-item--planned" id="tech-delegate">
+            <span class="tech-item__dot tech-item__dot--planned" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">delegate</span>
+              <span class="tech-item__sub">子任務委派 · 規劃中</span>
+            </div>
+          </div>
+          <div class="tech-item tech-item--planned" id="tech-computer-use">
+            <span class="tech-item__dot tech-item__dot--planned" aria-hidden="true"></span>
+            <div>
+              <span class="tech-item__name">computer_use</span>
+              <span class="tech-item__sub">桌面自動化 · 規劃中</span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── TOOLSETS DETAIL ─── -->
+  <section class="toolsets section" id="toolsets" aria-labelledby="toolsets-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">內建技能</div>
+        <h2 class="section-title" id="toolsets-heading">10 個 Bundled Procedure Skills</h2>
+        <p class="section-desc">每個技能以 Markdown 格式定義，包含名稱、描述、所需工具與平台</p>
+      </div>
+
+      <div class="skills-grid reveal-up" role="list" aria-label="內建程序技能列表">
+        <div class="skill-chip" role="listitem" id="skill-api">
+          <span class="skill-chip__icon" aria-hidden="true">🔌</span>
+          <span class="skill-chip__name">api-debugging</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-browser">
+          <span class="skill-chip__icon" aria-hidden="true">🌐</span>
+          <span class="skill-chip__name">browser-navigation</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-code-edit">
+          <span class="skill-chip__icon" aria-hidden="true">✏️</span>
+          <span class="skill-chip__name">code-editing</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-docs">
+          <span class="skill-chip__icon" aria-hidden="true">📖</span>
+          <span class="skill-chip__name">codebase-documentation</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-process">
+          <span class="skill-chip__icon" aria-hidden="true">⚙️</span>
+          <span class="skill-chip__name">process-management</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-debug">
+          <span class="skill-chip__icon" aria-hidden="true">🐛</span>
+          <span class="skill-chip__name">systematic-debugging</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-spike">
+          <span class="skill-chip__icon" aria-hidden="true">⚡</span>
+          <span class="skill-chip__name">technical-spike</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-tdd">
+          <span class="skill-chip__icon" aria-hidden="true">🧪</span>
+          <span class="skill-chip__name">test-driven-development</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-research">
+          <span class="skill-chip__icon" aria-hidden="true">🔍</span>
+          <span class="skill-chip__name">web-research</span>
+        </div>
+        <div class="skill-chip" role="listitem" id="skill-inspect">
+          <span class="skill-chip__icon" aria-hidden="true">🔭</span>
+          <span class="skill-chip__name">website-inspection</span>
+        </div>
+      </div>
+
+      <p class="skills-note reveal-up">
+        每次執行 Turn 時，<code>model.select_procedure_skills()</code> 依可用工具名稱動態篩選並載入最相關技能；執行成功且達到門檻後，<code>LearningLoop</code> 將自動起草新技能並生成 <code>LearningProposal</code>（CANDIDATE 狀態）。
+      </p>
     </div>
   </section>
 
@@ -365,19 +670,19 @@
   <section class="demo section" id="demo" aria-labelledby="demo-heading">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">實際演示</div>
-        <h2 class="section-title" id="demo-heading">代理人執行過程</h2>
-        <p class="section-desc">觀看代理人如何自主分解任務、調用工具並整合結果</p>
+        <div class="section-tag">真實事件序列</div>
+        <h2 class="section-title" id="demo-heading">AgentLoop 執行日誌</h2>
+        <p class="section-desc">以下事件序列直接對應 AutonomyStore.record_event() 的實際呼叫順序</p>
       </div>
 
-      <div class="terminal reveal-up" role="region" aria-label="代理人執行終端機示意">
+      <div class="terminal reveal-up" role="region" aria-label="AgentLoop 執行日誌示意">
         <div class="terminal__header" aria-hidden="true">
           <div class="terminal__dot terminal__dot--red"></div>
           <div class="terminal__dot terminal__dot--yellow"></div>
           <div class="terminal__dot terminal__dot--green"></div>
-          <span class="terminal__title">agent-system · bash</span>
+          <span class="terminal__title">autonomy · AgentLoop · run_id: a3f9c2e1</span>
         </div>
-        <div class="terminal__body" id="terminal-output" aria-live="polite" aria-label="終端機輸出">
+        <div class="terminal__body" id="terminal-output" aria-live="polite" aria-label="執行日誌輸出">
           <!-- JS will animate this -->
         </div>
       </div>
@@ -408,10 +713,12 @@
 
         <div class="author__info">
           <h3 class="author__name">Bill Liu</h3>
-          <p class="author__role">AI Agent 系統架構師 &amp; 開發者</p>
+          <p class="author__role">Autonomy 框架設計者 &amp; AI Agent 系統工程師</p>
           <p class="author__bio">
-            專注於自律型 AI 代理人系統的研究與實作，致力於將前沿 LLM 技術轉化為能夠自主解決複雜問題的智慧代理人框架。
-            熱衷於探索 AI 的邊界——從推理規劃到多代理協作，從工具整合到持續自我改進。
+            設計並實作了 Autonomy 自律型 AI 代理人框架，核心貢獻包括：Beam Search 候選評分系統、受管行動閘道（ActionGateway）、後執行學習迴路（LearningLoop）、以及後台技能策展守護程序（CuratorDaemon）。
+          </p>
+          <p class="author__bio">
+            致力於讓 AI 代理人在真實工程環境中可靠運行——從程式碼編輯、瀏覽器自動化到系統除錯，透過可組合的技能庫與事件溯源架構實現完整可審計性。
           </p>
           <div class="author__links">
             <a
@@ -449,8 +756,8 @@
     <div class="container">
       <div class="cta-card reveal-up">
         <div class="cta-card__glow" aria-hidden="true"></div>
-        <h2 class="cta-card__title" id="cta-heading">準備好探索 AI 代理人的未來了嗎？</h2>
-        <p class="cta-card__desc">深入了解系統架構、閱讀技術文件，或直接 fork 本專案開始實驗。</p>
+        <h2 class="cta-card__title" id="cta-heading">準備好打造你的自律型 AI 代理人了嗎？</h2>
+        <p class="cta-card__desc">Fork Autonomy，添加你的工具集、訓練專屬技能庫，讓代理人在你的領域自主作業。</p>
         <div class="cta-card__actions">
           <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" id="cta-github-btn">
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -460,7 +767,7 @@
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
-            聯絡我
+            聯絡作者
           </a>
         </div>
       </div>
@@ -474,9 +781,9 @@
         <div class="footer__brand">
           <a href="#hero" class="nav__logo footer__logo" aria-label="回到頂部">
             <span class="nav__logo-icon" aria-hidden="true">⬡</span>
-            <span>AGI<span class="nav__logo-accent">SYS</span></span>
+            <span>Autonomy</span>
           </a>
-          <p class="footer__tagline">自律型 AI 代理人系統 · 由 Bill Liu 開發</p>
+          <p class="footer__tagline">自律型 AI 代理人框架 · 由 Bill Liu 設計與實作</p>
         </div>
         <div class="footer__links">
           <a href="https://www.linkedin.com/in/willweimike" target="_blank" rel="noopener noreferrer" class="footer__link" id="footer-linkedin">LinkedIn</a>
@@ -484,7 +791,7 @@
         </div>
       </div>
       <p class="footer__copy">
-        © 2025 Bill Liu · 以熱情與程式碼打造
+        © 2025 Bill Liu · Autonomy Framework · AgentLoop · ProcedureSkillLibrary · CuratorDaemon
       </p>
     </div>
   </footer>
