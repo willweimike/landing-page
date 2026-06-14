@@ -300,6 +300,56 @@ svg { flex-shrink: 0; }
 
 .nav__cta { margin-left: 0.75rem; }
 
+/* ── Language Toggle ── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--clr-border);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-left: auto;
+  user-select: none;
+}
+
+.lang-toggle:hover {
+  border-color: hsl(195, 100%, 50%, 0.45);
+  background: hsl(195, 100%, 50%, 0.05);
+  box-shadow: 0 0 12px hsl(195, 100%, 50%, 0.15);
+  color: var(--clr-text);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--clr-cyan);
+  outline-offset: 3px;
+}
+
+.lang-toggle__sep {
+  opacity: 0.3;
+  font-weight: 400;
+}
+
+.lang-toggle__zh,
+.lang-toggle__en {
+  transition: color 0.2s;
+  color: var(--clr-text-faint);
+}
+
+.lang-toggle__active {
+  color: var(--clr-cyan) !important;
+  text-shadow: 0 0 10px hsl(195, 100%, 50%, 0.6);
+}
+
+
+
 /* ── 8. HERO ── */
 .hero {
   position: relative;
@@ -1274,6 +1324,8 @@ svg { flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .nav__links { display: none; }
+  .nav__cta { display: none; }   /* hide GitHub CTA on mobile to save space */
+  .lang-toggle { margin-left: auto; font-size: 0.7rem; padding: 0.3rem 0.75rem; }
   .features__grid { grid-template-columns: 1fr; }
   .author__card { flex-direction: column; gap: 2rem; padding: 2.5rem 1.75rem; }
   .author__photo { width: 160px; height: 160px; }
