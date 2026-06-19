@@ -9,7 +9,7 @@
 /* ── Terminal content per language ──────────────────────────── */
 const TERMINAL_LINES = {
   zh: [
-    { type: 'cmd',   text: '$ python -m autonomy run "為專案撰寫 API 除錯技能並驗證"' },
+    { type: 'cmd',   text: '$ python3.13 -m autonomy run "為專案撰寫 API 除錯技能並驗證"' },
     { type: 'info',  text: '' },
     { type: 'info',  text: '◆  run_started  run_id=a3f9c2e1  step=0' },
     { type: 'info',  text: '   goal: "為專案撰寫 API 除錯技能並驗證"' },
@@ -45,7 +45,7 @@ const TERMINAL_LINES = {
     { type: 'learn', text: '   curator_daemon_run: merge_count=0  (no duplicates detected)' },
   ],
   en: [
-    { type: 'cmd',   text: '$ python -m autonomy run "Write and validate an API debugging skill for the project"' },
+    { type: 'cmd',   text: '$ python3.13 -m autonomy run "Write and validate an API debugging skill for the project"' },
     { type: 'info',  text: '' },
     { type: 'info',  text: '◆  run_started  run_id=a3f9c2e1  step=0' },
     { type: 'info',  text: '   goal: "Write and validate an API debugging skill for the project"' },
