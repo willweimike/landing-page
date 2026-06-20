@@ -64,7 +64,7 @@ const I18N = {
       f8t: '技能策展守護程序',
       f8d: '每次 Run 結束後，<code>CuratorDaemon</code> 在後台執行緒（<code>daemon=True</code>）非同步啟動 <code>SkillCurator.apply_auto_merges()</code>，自動偵測並合併重複（信心 0.95）或子集（信心 0.90）技能，防止技能庫膨脹。',
       f9t: '可擴展工具集目錄',
-      f9d: '<code>TOOLSET_CATALOG</code> 涵蓋 4 個預設啟用工具集：file、terminal、search、skills，加上 opt-in 的 project（git / JSON / YAML / Python 測試探索）與 browser（Playwright headless Chromium，11 工具）。規劃中：memory、delegate、cronjob、computer_use。',
+      f9d: '<code>TOOLSET_CATALOG</code> 涵蓋 4 個預設啟用工具集：file、terminal、search、skills，加上 opt-in 的 project（git / JSON / YAML / Python 測試探索）與 browser（Playwright headless Chromium，11 工具）。已實作 memory，規劃中：delegate、cronjob、computer_use。',
       f10t: '完整事件溯源稽核',
       f10d: '<code>AutonomyStore</code> 以 Event Sourcing 模式記錄整個執行生命週期：run_started → skills_selected → candidates_ranked → action_selected → approval_decision → observation → outcome_evaluated → recipe_learned → learning_review → run_finished，完整可重播。',
       f11t: 'TUI 終端互動介面',
@@ -88,6 +88,7 @@ const I18N = {
       desc: '每個方塊對應 Autonomy 原始碼中的實際類別或模組',
       techtitle: 'TOOLSET_CATALOG — 工具集 & AI Providers',
       providertitle: '支援 AI Provider（9 個）',
+      memorySub: '持久化工作區記憶與上下文自動注入',
     },
     toolsets: {
       tag: '內建技能',
@@ -178,7 +179,7 @@ const I18N = {
       f8t: 'Skill Curator Daemon',
       f8d: 'After each Run, <code>CuratorDaemon</code> asynchronously launches <code>SkillCurator.apply_auto_merges()</code> in a background thread (<code>daemon=True</code>), automatically detecting and merging duplicate (confidence 0.95) or subset (confidence 0.90) skills to prevent library bloat.',
       f9t: 'Extensible Toolset Catalog',
-      f9d: '<code>TOOLSET_CATALOG</code> includes 4 default-enabled toolsets: file, terminal, search, skills, plus opt-in toolsets: project (git / JSON / YAML / Python test discovery) and browser (Playwright headless Chromium, 11 tools). Planned: memory, delegate, cronjob, computer_use.',
+      f9d: '<code>TOOLSET_CATALOG</code> includes 4 default-enabled toolsets: file, terminal, search, skills, plus opt-in toolsets: project (git / JSON / YAML / Python test discovery) and browser (Playwright headless Chromium, 11 tools). Implemented: memory. Planned: delegate, cronjob, computer_use.',
       f10t: 'Full Event Sourcing Audit',
       f10d: '<code>AutonomyStore</code> records the complete execution lifecycle in Event Sourcing pattern: run_started → skills_selected → candidates_ranked → action_selected → approval_decision → observation → outcome_evaluated → recipe_learned → learning_review → run_finished, fully replayable.',
       f11t: 'TUI Terminal Interface',
@@ -202,6 +203,7 @@ const I18N = {
       desc: 'Each block corresponds to an actual class or module in the Autonomy source code',
       techtitle: 'TOOLSET_CATALOG — Toolsets & AI Providers',
       providertitle: 'Supported AI Providers (9)',
+      memorySub: 'Persistent Workspace Memory & Context Injection',
     },
     toolsets: {
       tag: 'Built-in Skills',
@@ -290,7 +292,7 @@ function applyLanguage(lang) {
 
 /* ── 4. Init ─────────────────────────────────────────────────── */
 function initI18n() {
-  let lang = 'zh';
+  let lang = 'en';
   try {
     const saved = localStorage.getItem('autonomy-lang');
     if (saved === 'en' || saved === 'zh') lang = saved;

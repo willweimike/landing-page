@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autonomy — 自律型 AI 代理人系統 | Bill Liu</title>
-  <meta name="description" content="Bill Liu 打造的 Autonomy 框架：具備 Beam Search 候選排序、受管行動閘道、程序技能學習與後台技能策展守護程序的自律型 AI 代理人系統。" />
+  <meta name="description"
+    content="Bill Liu 打造的 Autonomy 框架：具備 Beam Search 候選排序、受管行動閘道、程序技能學習與後台技能策展守護程序的自律型 AI 代理人系統。" />
   <meta name="author" content="Bill Liu" />
   <meta property="og:title" content="Autonomy — 自律型 AI 代理人系統 | Bill Liu" />
   <meta property="og:description" content="具備 Beam Search 候選排序、受管行動閘道、程序技能學習與後台技能策展守護程序的自律型 AI 代理人系統。" />
   <meta property="og:type" content="website" />
+  <link rel="icon" href="autonomy_icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- ─── NAV ─── -->
   <nav class="nav" id="nav" aria-label="主導覽列">
     <div class="nav__inner">
       <a href="#hero" class="nav__logo" aria-label="回到頂部">
-        <span class="nav__logo-icon" aria-hidden="true">⬡</span>
+        <img src="autonomy_icon.png" alt="" class="nav__logo-icon" width="24" height="24" aria-hidden="true" />
         <span>Autonomy</span>
       </a>
       <ul class="nav__links" role="list">
-        <li><a href="#about"        class="nav__link" data-i18n="nav.about">設計理念</a></li>
-        <li><a href="#features"     class="nav__link" data-i18n="nav.features">核心模組</a></li>
+        <li><a href="#about" class="nav__link" data-i18n="nav.about">設計理念</a></li>
+        <li><a href="#features" class="nav__link" data-i18n="nav.features">核心模組</a></li>
         <li><a href="#architecture" class="nav__link" data-i18n="nav.arch">系統架構</a></li>
-        <li><a href="#toolsets"     class="nav__link" data-i18n="nav.toolsets">工具集</a></li>
-        <li><a href="#author"       class="nav__link" data-i18n="nav.author">作者</a></li>
+        <li><a href="#toolsets" class="nav__link" data-i18n="nav.toolsets">工具集</a></li>
+        <li><a href="#author" class="nav__link" data-i18n="nav.author">作者</a></li>
       </ul>
 
       <!-- Language Toggle -->
@@ -39,9 +46,10 @@
       </button>
 
       <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer"
-         class="btn btn--sm btn--outline nav__cta" id="nav-github-btn">
+        class="btn btn--sm btn--outline nav__cta" id="nav-github-btn">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
         </svg>
         GitHub
       </a>
@@ -77,12 +85,16 @@
       <div class="hero__cta-group">
         <a href="#features" class="btn btn--primary btn--lg" id="hero-explore-btn">
           <span data-i18n="hero.explore">探索核心模組</span>
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
         </a>
-        <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer"
-           class="btn btn--ghost btn--lg" id="hero-github-btn">
+        <a href="https://github.com/willweimike/autonomy" target="_blank" rel="noopener noreferrer"
+          class="btn btn--ghost btn--lg" id="hero-github-btn">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
           </svg>
           <span data-i18n="hero.github">查看原始碼</span>
         </a>
@@ -131,10 +143,12 @@
             <mark>AgentLoop</mark> 是 Autonomy 的核心驅動器——一個「自導向任務迴圈」，不需要人工介入即可從目標出發，自主選擇工具、執行行動並從結果中學習。
           </p>
           <p class="about__body" data-i18n-html="about.body1">
-            每個 Turn 的執行流程：①從技能庫選取相關 <code>ProcedureSkill</code>，②由 LLM 提案 + RecipeEngine 產出候選動作路徑，③以 5 維評分排序（Beam Width=3），④透過 <code>ActionGateway</code> 受管執行，⑤評估結果並觸發學習。
+            每個 Turn 的執行流程：①從技能庫選取相關 <code>ProcedureSkill</code>，②由 LLM 提案 + RecipeEngine 產出候選動作路徑，③以 5 維評分排序（Beam
+            Width=3），④透過 <code>ActionGateway</code> 受管執行，⑤評估結果並觸發學習。
           </p>
           <p class="about__body" data-i18n-html="about.body2">
-            終止條件明確：<code>ACHIEVED</code>（目標完成）、<code>BLOCKED</code>（無法繼續）、<code>NO_CANDIDATES</code>、<code>APPROVAL_DENIED</code>、<code>MAX_STEPS_REACHED</code>、或 <code>FAILED</code>——系統永遠不會陷入無限循環。
+            終止條件明確：<code>ACHIEVED</code>（目標完成）、<code>BLOCKED</code>（無法繼續）、<code>NO_CANDIDATES</code>、<code>APPROVAL_DENIED</code>、<code>MAX_STEPS_REACHED</code>、或
+            <code>FAILED</code>——系統永遠不會陷入無限循環。
           </p>
           <div class="about__pills">
             <span class="pill pill--cyan">AgentLoop</span>
@@ -204,110 +218,182 @@
       <div class="features__grid">
 
         <article class="feature-card reveal-up" style="--delay:0ms" id="feature-agentloop">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🔄</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🔄</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f1t">自導向代理人迴圈</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f1d"><code>AgentLoop.run(goal, max_steps=12)</code> 啟動後完全自主執行，每步驟透過 <code>run_turn()</code> 推進。支援互動模式（<code>interactive=True</code>）與批次模式，所有事件均以 <code>run_id</code> 記錄於 <code>AutonomyStore</code>。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f1d"><code>AgentLoop.run(goal, max_steps=12)</code>
+            啟動後完全自主執行，每步驟透過 <code>run_turn()</code> 推進。支援互動模式（<code>interactive=True</code>）與批次模式，所有事件均以
+            <code>run_id</code> 記錄於 <code>AutonomyStore</code>。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">AgentLoop</li><li class="tag">RunState</li><li class="tag">TerminationReason</li>
+            <li class="tag">AgentLoop</li>
+            <li class="tag">RunState</li>
+            <li class="tag">TerminationReason</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:80ms" id="feature-gateway">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🛡️</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🛡️</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f2t">受管行動閘道</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f2d">所有工具呼叫必須通過 <code>ActionGateway</code> 的 <code>ApprovalPolicy</code> 授權。每個動作帶有 <code>RiskLevel</code>（LOW / MEDIUM / HIGH）、<code>expected_effect</code> 與 <code>verification_plan</code>，確保執行可控、可審計。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f2d">所有工具呼叫必須通過 <code>ActionGateway</code> 的
+            <code>ApprovalPolicy</code> 授權。每個動作帶有 <code>RiskLevel</code>（LOW / MEDIUM /
+            HIGH）、<code>expected_effect</code> 與 <code>verification_plan</code>，確保執行可控、可審計。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">ActionGateway</li><li class="tag">ApprovalPolicy</li><li class="tag">RiskLevel</li>
+            <li class="tag">ActionGateway</li>
+            <li class="tag">ApprovalPolicy</li>
+            <li class="tag">RiskLevel</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:160ms" id="feature-beamsearch">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">📊</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📊</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f3t">5 維 Beam Search 評分</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f3d"><code>CandidateSelector</code> 以 evidence_strength（+0.30）、purpose（+0.10）、risk（−0.35）、side_effects（−0.20）、penalty（−1.0）五個維度計算總分，選出前 <code>beam_width=3</code> 名候選路徑送往執行。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f3d"><code>CandidateSelector</code> 以
+            evidence_strength（+0.30）、purpose（+0.10）、risk（−0.35）、side_effects（−0.20）、penalty（−1.0）五個維度計算總分，選出前
+            <code>beam_width=3</code> 名候選路徑送往執行。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">CandidateSelector</li><li class="tag">CandidatePath</li><li class="tag">beam_width=3</li>
+            <li class="tag">CandidateSelector</li>
+            <li class="tag">CandidatePath</li>
+            <li class="tag">beam_width=3</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:240ms" id="feature-outcome">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🎯</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🎯</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f4t">混合結果評估</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f4d"><code>DeterministicOutcomeEvaluator</code> 優先判斷執行失敗（直接 BLOCKED），成功但結果不確定時再交由 <code>ModelAssistedOutcomeEvaluator</code> 呼叫 LLM 語義判斷——最小化昂貴的模型呼叫次數。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f4d"><code>DeterministicOutcomeEvaluator</code> 優先判斷執行失敗（直接
+            BLOCKED），成功但結果不確定時再交由 <code>ModelAssistedOutcomeEvaluator</code> 呼叫 LLM 語義判斷——最小化昂貴的模型呼叫次數。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">DeterministicEvaluator</li><li class="tag">ModelAssistedEvaluator</li><li class="tag">GoalStatus</li>
+            <li class="tag">DeterministicEvaluator</li>
+            <li class="tag">ModelAssistedEvaluator</li>
+            <li class="tag">GoalStatus</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:320ms" id="feature-skills">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">📚</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📚</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f5t">程序技能庫（13 內建）</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f5d"><code>ProcedureSkillLibrary</code> 內建 13 個 bundled skills，涵蓋 api-debugging、browser-navigation、code-editing、codebase-documentation、plan、procedure-skill-authoring、process-management、requesting-code-review、systematic-debugging、technical-spike、TDD、website-inspection、writing-plans，每步動態選取最相關技能載入。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f5d"><code>ProcedureSkillLibrary</code> 內建 13 個 bundled
+            skills，涵蓋
+            api-debugging、browser-navigation、code-editing、codebase-documentation、plan、procedure-skill-authoring、process-management、requesting-code-review、systematic-debugging、technical-spike、TDD、website-inspection、writing-plans，每步動態選取最相關技能載入。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">ProcedureSkillLibrary</li><li class="tag">ProcedureSkill</li><li class="tag">requires_tools</li>
+            <li class="tag">ProcedureSkillLibrary</li>
+            <li class="tag">ProcedureSkill</li>
+            <li class="tag">requires_tools</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:400ms" id="feature-learning">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🧠</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🧠</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f6t">後執行學習迴路</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f6d">每次 Run 結束後，<code>LearningLoop.review_run()</code> 自動觸發：若結果為 ACHIEVED 且有 ≥2 個成功步驟，自動起草新 <code>ProcedureSkillDraft</code>（信心度 0.85），生成 <code>LearningProposal</code> 等待審核。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f6d">每次 Run 結束後，<code>LearningLoop.review_run()</code>
+            自動觸發：若結果為 ACHIEVED 且有 ≥2 個成功步驟，自動起草新 <code>ProcedureSkillDraft</code>（信心度 0.85），生成
+            <code>LearningProposal</code> 等待審核。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">LearningLoop</li><li class="tag">LearningProposal</li><li class="tag">confidence=0.85</li>
+            <li class="tag">LearningLoop</li>
+            <li class="tag">LearningProposal</li>
+            <li class="tag">confidence=0.85</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:480ms" id="feature-recipe">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">⚗️</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">⚗️</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f7t">Action Recipe 引擎</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f7d"><code>RecipeEngine</code> 監控每個成功動作的 SHA-256 指紋——當同一動作成功次數 ≥ <code>candidate_threshold=2</code>，自動升格為候選 Recipe，下次直接作為行動選項（source=<code>action_skill</code>）提出，無需 LLM 重新推理。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f7d"><code>RecipeEngine</code> 監控每個成功動作的 SHA-256
+            指紋——當同一動作成功次數 ≥ <code>candidate_threshold=2</code>，自動升格為候選
+            Recipe，下次直接作為行動選項（source=<code>action_skill</code>）提出，無需 LLM 重新推理。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">RecipeEngine</li><li class="tag">ActionRecipe</li><li class="tag">action fingerprint</li>
+            <li class="tag">RecipeEngine</li>
+            <li class="tag">ActionRecipe</li>
+            <li class="tag">action fingerprint</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:560ms" id="feature-curator">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🗂️</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🗂️</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f8t">技能策展守護程序</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f8d">每次 Run 結束後，<code>CuratorDaemon</code> 在後台執行緒（<code>daemon=True</code>）非同步啟動 <code>SkillCurator.apply_auto_merges()</code>，自動偵測並合併重複（信心 0.95）或子集（信心 0.90）技能，防止技能庫膨脹。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f8d">每次 Run 結束後，<code>CuratorDaemon</code>
+            在後台執行緒（<code>daemon=True</code>）非同步啟動 <code>SkillCurator.apply_auto_merges()</code>，自動偵測並合併重複（信心 0.95）或子集（信心
+            0.90）技能，防止技能庫膨脹。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">CuratorDaemon</li><li class="tag">SkillCurator</li><li class="tag">async merge</li>
+            <li class="tag">CuratorDaemon</li>
+            <li class="tag">SkillCurator</li>
+            <li class="tag">async merge</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:640ms" id="feature-toolsets">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🧰</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🧰</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f9t">可擴展工具集目錄</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f9d"><code>TOOLSET_CATALOG</code> 涵蓋 4 個預設啟用工具集：file、terminal、search、skills，加上 opt-in 的 project（git / JSON / YAML / 測試探索）與 browser（Playwright headless Chromium，11 工具）。規劃中：memory、delegate、cronjob、computer_use。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f9d"><code>TOOLSET_CATALOG</code> 涵蓋 4
+            個預設啟用工具集：file、terminal、search、skills，加上 opt-in 的 project（git / JSON / YAML / 測試探索）與 browser（Playwright
+            headless Chromium，11 工具）。規劃中：memory、delegate、cronjob、computer_use。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">ToolsetCatalog</li><li class="tag">ToolRegistry</li><li class="tag">ApprovalPolicy</li>
+            <li class="tag">ToolsetCatalog</li>
+            <li class="tag">ToolRegistry</li>
+            <li class="tag">ApprovalPolicy</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:720ms" id="feature-store">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">📡</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">📡</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f10t">完整事件溯源稽核</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f10d"><code>AutonomyStore</code> 以 Event Sourcing 模式記錄整個執行生命週期：run_started → skills_selected → candidates_ranked → action_selected → approval_decision → observation → outcome_evaluated → recipe_learned → learning_review → run_finished，完整可重播。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f10d"><code>AutonomyStore</code> 以 Event Sourcing
+            模式記錄整個執行生命週期：run_started → skills_selected → candidates_ranked → action_selected → approval_decision →
+            observation → outcome_evaluated → recipe_learned → learning_review → run_finished，完整可重播。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">AutonomyStore</li><li class="tag">record_event()</li><li class="tag">Event Sourcing</li>
+            <li class="tag">AutonomyStore</li>
+            <li class="tag">record_event()</li>
+            <li class="tag">Event Sourcing</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:800ms" id="feature-tui">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🖥️</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🖥️</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f11t">TUI 終端互動介面</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f11d"><code>autonomy tui</code> 啟動豐富終端介面，提供 session 總覽面板、回合記錄、Action trail、compact/full 切換模式與 <code>/</code> 指令面板。自然語言直接流入 <code>AgentLoop</code>，UI 永遠不直接執行工具。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f11d"><code>autonomy tui</code> 啟動豐富終端介面，提供 session
+            總覽面板、回合記錄、Action trail、compact/full 切換模式與 <code>/</code> 指令面板。自然語言直接流入 <code>AgentLoop</code>，UI 永遠不直接執行工具。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">ConversationLoop</li><li class="tag">SessionShell</li><li class="tag">autonomy tui</li>
+            <li class="tag">ConversationLoop</li>
+            <li class="tag">SessionShell</li>
+            <li class="tag">autonomy tui</li>
           </ul>
         </article>
 
         <article class="feature-card reveal-up" style="--delay:880ms" id="feature-providers">
-          <div class="feature-card__icon-wrap" aria-hidden="true"><div class="feature-card__icon">🌐</div></div>
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon">🌐</div>
+          </div>
           <h3 class="feature-card__title" data-i18n="feat.f12t">多 Provider 支援</h3>
-          <p class="feature-card__desc" data-i18n-html="feat.f12d">支援 <code>ollama</code>（本地）與 8 個 OpenAI-compatible providers：openai-api、nvidia、openrouter、deepseek、xai、zai、kimi-coding、alibaba。提供 API 金鑰管理與 provider 設定，<code>autonomy doctor</code> 可檢查端點走通性。</p>
+          <p class="feature-card__desc" data-i18n-html="feat.f12d">支援 <code>ollama</code>（本地）與 8 個 OpenAI-compatible
+            providers：openai-api、nvidia、openrouter、deepseek、xai、zai、kimi-coding、alibaba。提供 API 金鑰管理與 provider
+            設定，<code>autonomy doctor</code> 可檢查端點走通性。</p>
           <ul class="feature-card__tags" aria-label="相關類別">
-            <li class="tag">ollama</li><li class="tag">openrouter</li><li class="tag">nvidia / deepseek / xAI</li>
+            <li class="tag">ollama</li>
+            <li class="tag">openrouter</li>
+            <li class="tag">nvidia / deepseek / xAI</li>
           </ul>
         </article>
 
@@ -509,50 +595,66 @@
         <div class="tech-stack__grid">
           <div class="tech-item tech-item--live" id="tech-file">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">file</span><span class="tech-item__sub">read / write / patch / diff / outline / symbol_search / syntax_check…</span></div>
+            <div><span class="tech-item__name">file</span><span class="tech-item__sub">read / write / patch / diff /
+                outline / symbol_search / syntax_check…</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-terminal">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">terminal</span><span class="tech-item__sub">shell.execute / process.start / poll / log / wait / stop</span></div>
+            <div><span class="tech-item__name">terminal</span><span class="tech-item__sub">shell.execute / process.start
+                / poll / log / wait / stop</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-search">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">search</span><span class="tech-item__sub">search.text · filesystem.search_files (預設啟用)</span></div>
+            <div><span class="tech-item__name">search</span><span class="tech-item__sub">search.text ·
+                filesystem.search_files (預設啟用)</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-skills-tool">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">skills</span><span class="tech-item__sub">procedure skill discovery &amp; management (預設啟用)</span></div>
+            <div><span class="tech-item__name">skills</span><span class="tech-item__sub">procedure skill discovery &amp;
+                management (預設啟用)</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-project">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">project</span><span class="tech-item__sub">git.status/diff/log · json.parse · yaml.parse · python.test_discover (opt-in)</span></div>
+            <div><span class="tech-item__name">project</span><span class="tech-item__sub">git.status/diff/log ·
+                json.parse · yaml.parse · python.test_discover (opt-in)</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-browser">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">browser</span><span class="tech-item__sub">Playwright Chromium · navigate / snapshot / click / screenshot… (opt-in)</span></div>
+            <div><span class="tech-item__name">browser</span><span class="tech-item__sub">Playwright Chromium · navigate
+                / snapshot / click / screenshot… (opt-in)</span></div>
           </div>
-          <div class="tech-item tech-item--planned" id="tech-memory">
+          <div class="tech-item tech-item--live" id="tech-memory">
+            <span class="tech-item__dot" aria-hidden="true"></span>
+            <div><span class="tech-item__name">memory</span><span class="tech-item__sub"
+                data-i18n="arch.memorySub">Persistent Workspace Memory & Context Injection</span></div>
+          </div>
+          <div class="tech-item tech-item--planned" id="tech-planned">
             <span class="tech-item__dot tech-item__dot--planned" aria-hidden="true"></span>
-            <div><span class="tech-item__name">memory / delegate / cronjob / computer_use</span><span class="tech-item__sub">planned</span></div>
+            <div><span class="tech-item__name">delegate / cronjob / computer_use</span><span
+                class="tech-item__sub">planned</span></div>
           </div>
         </div>
         <h3 class="tech-stack__title" style="margin-top:2rem" data-i18n="arch.providertitle">支援 AI Provider</h3>
         <div class="tech-stack__grid">
           <div class="tech-item tech-item--live" id="tech-ollama">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">Ollama</span><span class="tech-item__sub">本地部署 · http://127.0.0.1:11434/v1</span></div>
+            <div><span class="tech-item__name">Ollama</span><span class="tech-item__sub">本地部署 ·
+                http://127.0.0.1:11434/v1</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-openai">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">OpenAI API</span><span class="tech-item__sub">openai-compatible · OPENAI_API_KEY</span></div>
+            <div><span class="tech-item__name">OpenAI API</span><span class="tech-item__sub">openai-compatible ·
+                OPENAI_API_KEY</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-nvidia">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">NVIDIA</span><span class="tech-item__sub">integrate.api.nvidia.com · kimi-k2.6</span></div>
+            <div><span class="tech-item__name">NVIDIA</span><span class="tech-item__sub">integrate.api.nvidia.com ·
+                kimi-k2.6</span></div>
           </div>
           <div class="tech-item tech-item--live" id="tech-openrouter">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">OpenRouter</span><span class="tech-item__sub">OPENROUTER_API_KEY</span></div>
+            <div><span class="tech-item__name">OpenRouter</span><span class="tech-item__sub">OPENROUTER_API_KEY</span>
+            </div>
           </div>
           <div class="tech-item tech-item--live" id="tech-deepseek">
             <span class="tech-item__dot" aria-hidden="true"></span>
@@ -560,7 +662,8 @@
           </div>
           <div class="tech-item tech-item--live" id="tech-others">
             <span class="tech-item__dot" aria-hidden="true"></span>
-            <div><span class="tech-item__name">xAI · Kimi · Alibaba · ZAI</span><span class="tech-item__sub">XAI_API_KEY · KIMI_API_KEY · DASHSCOPE_API_KEY…</span></div>
+            <div><span class="tech-item__name">xAI · Kimi · Alibaba · ZAI</span><span class="tech-item__sub">XAI_API_KEY
+                · KIMI_API_KEY · DASHSCOPE_API_KEY…</span></div>
           </div>
         </div>
       </div>
@@ -577,23 +680,38 @@
       </div>
 
       <div class="skills-grid reveal-up" role="list" aria-label="內建程序技能列表">
-        <div class="skill-chip" role="listitem" id="skill-api"><span class="skill-chip__icon" aria-hidden="true">🔌</span><span class="skill-chip__name">api-debugging</span></div>
-        <div class="skill-chip" role="listitem" id="skill-browser"><span class="skill-chip__icon" aria-hidden="true">🌐</span><span class="skill-chip__name">browser-navigation</span></div>
-        <div class="skill-chip" role="listitem" id="skill-code-edit"><span class="skill-chip__icon" aria-hidden="true">✏️</span><span class="skill-chip__name">code-editing</span></div>
-        <div class="skill-chip" role="listitem" id="skill-docs"><span class="skill-chip__icon" aria-hidden="true">📖</span><span class="skill-chip__name">codebase-documentation</span></div>
-        <div class="skill-chip" role="listitem" id="skill-plan"><span class="skill-chip__icon" aria-hidden="true">📋</span><span class="skill-chip__name">plan</span></div>
-        <div class="skill-chip" role="listitem" id="skill-skill-authoring"><span class="skill-chip__icon" aria-hidden="true">🖊️</span><span class="skill-chip__name">procedure-skill-authoring</span></div>
-        <div class="skill-chip" role="listitem" id="skill-process"><span class="skill-chip__icon" aria-hidden="true">⚙️</span><span class="skill-chip__name">process-management</span></div>
-        <div class="skill-chip" role="listitem" id="skill-review"><span class="skill-chip__icon" aria-hidden="true">🔎</span><span class="skill-chip__name">requesting-code-review</span></div>
-        <div class="skill-chip" role="listitem" id="skill-debug"><span class="skill-chip__icon" aria-hidden="true">🐛</span><span class="skill-chip__name">systematic-debugging</span></div>
-        <div class="skill-chip" role="listitem" id="skill-spike"><span class="skill-chip__icon" aria-hidden="true">⚡</span><span class="skill-chip__name">technical-spike</span></div>
-        <div class="skill-chip" role="listitem" id="skill-tdd"><span class="skill-chip__icon" aria-hidden="true">🧪</span><span class="skill-chip__name">test-driven-development</span></div>
-        <div class="skill-chip" role="listitem" id="skill-inspect"><span class="skill-chip__icon" aria-hidden="true">🔭</span><span class="skill-chip__name">website-inspection</span></div>
-        <div class="skill-chip" role="listitem" id="skill-writing-plans"><span class="skill-chip__icon" aria-hidden="true">📝</span><span class="skill-chip__name">writing-plans</span></div>
+        <div class="skill-chip" role="listitem" id="skill-api"><span class="skill-chip__icon"
+            aria-hidden="true">🔌</span><span class="skill-chip__name">api-debugging</span></div>
+        <div class="skill-chip" role="listitem" id="skill-browser"><span class="skill-chip__icon"
+            aria-hidden="true">🌐</span><span class="skill-chip__name">browser-navigation</span></div>
+        <div class="skill-chip" role="listitem" id="skill-code-edit"><span class="skill-chip__icon"
+            aria-hidden="true">✏️</span><span class="skill-chip__name">code-editing</span></div>
+        <div class="skill-chip" role="listitem" id="skill-docs"><span class="skill-chip__icon"
+            aria-hidden="true">📖</span><span class="skill-chip__name">codebase-documentation</span></div>
+        <div class="skill-chip" role="listitem" id="skill-plan"><span class="skill-chip__icon"
+            aria-hidden="true">📋</span><span class="skill-chip__name">plan</span></div>
+        <div class="skill-chip" role="listitem" id="skill-skill-authoring"><span class="skill-chip__icon"
+            aria-hidden="true">🖊️</span><span class="skill-chip__name">procedure-skill-authoring</span></div>
+        <div class="skill-chip" role="listitem" id="skill-process"><span class="skill-chip__icon"
+            aria-hidden="true">⚙️</span><span class="skill-chip__name">process-management</span></div>
+        <div class="skill-chip" role="listitem" id="skill-review"><span class="skill-chip__icon"
+            aria-hidden="true">🔎</span><span class="skill-chip__name">requesting-code-review</span></div>
+        <div class="skill-chip" role="listitem" id="skill-debug"><span class="skill-chip__icon"
+            aria-hidden="true">🐛</span><span class="skill-chip__name">systematic-debugging</span></div>
+        <div class="skill-chip" role="listitem" id="skill-spike"><span class="skill-chip__icon"
+            aria-hidden="true">⚡</span><span class="skill-chip__name">technical-spike</span></div>
+        <div class="skill-chip" role="listitem" id="skill-tdd"><span class="skill-chip__icon"
+            aria-hidden="true">🧪</span><span class="skill-chip__name">test-driven-development</span></div>
+        <div class="skill-chip" role="listitem" id="skill-inspect"><span class="skill-chip__icon"
+            aria-hidden="true">🔭</span><span class="skill-chip__name">website-inspection</span></div>
+        <div class="skill-chip" role="listitem" id="skill-writing-plans"><span class="skill-chip__icon"
+            aria-hidden="true">📝</span><span class="skill-chip__name">writing-plans</span></div>
       </div>
 
       <p class="skills-note reveal-up" data-i18n-html="toolsets.note">
-        每次執行 Turn 時，<code>model.select_procedure_skills()</code> 依可用工具名稱動態篩選並載入最相關技能；執行成功且達到門檻後，<code>LearningLoop</code> 將自動起草新技能並生成 <code>LearningProposal</code>（CANDIDATE 狀態）。
+        每次執行 Turn 時，<code>model.select_procedure_skills()</code>
+        依可用工具名稱動態篩選並載入最相關技能；執行成功且達到門檻後，<code>LearningLoop</code> 將自動起草新技能並生成 <code>LearningProposal</code>（CANDIDATE
+        狀態）。
       </p>
     </div>
   </section>
@@ -612,7 +730,8 @@
           <div class="terminal__dot terminal__dot--red"></div>
           <div class="terminal__dot terminal__dot--yellow"></div>
           <div class="terminal__dot terminal__dot--green"></div>
-          <span class="terminal__title" id="terminal-title" data-i18n="demo.terminaltitle">autonomy · AgentLoop · run_id: a3f9c2e1</span>
+          <span class="terminal__title" id="terminal-title" data-i18n="demo.terminaltitle">autonomy · AgentLoop ·
+            run_id: a3f9c2e1</span>
         </div>
         <div class="terminal__body" id="terminal-output" aria-live="polite" aria-label="執行日誌輸出">
           <!-- JS animates this -->
@@ -631,8 +750,8 @@
 
       <div class="author__card reveal-up" role="article" aria-label="Bill Liu 作者資訊">
         <div class="author__photo-wrap">
-          <img src="my_profile_photo.jpg" alt="Bill Liu" class="author__photo"
-               width="240" height="240" fetchpriority="high" />
+          <img src="my_profile_photo.jpg" alt="Bill Liu" class="author__photo" width="240" height="240"
+            fetchpriority="high" />
           <div class="author__photo-ring" aria-hidden="true"></div>
           <div class="author__photo-glow" aria-hidden="true"></div>
         </div>
@@ -640,22 +759,24 @@
         <div class="author__info">
           <h3 class="author__name">Bill Liu</h3>
           <p class="author__role" data-i18n-html="author.role">Autonomy 框架設計者 &amp; AI Agent 系統工程師</p>
-          <p class="author__bio" data-i18n="author.bio1">設計並實作了 Autonomy 自律型 AI 代理人框架，核心貢獻包括：Beam Search 候選評分系統、受管行動閘道（ActionGateway）、後執行學習迴路（LearningLoop）、以及後台技能策展守護程序（CuratorDaemon）。</p>
-          <p class="author__bio" data-i18n="author.bio2">致力於讓 AI 代理人在真實工程環境中可靠運行——從程式碼編輯、瀏覽器自動化到系統除錯，透過可組合的技能庫與事件溯源架構實現完整可審計性。</p>
+          <p class="author__bio" data-i18n="author.bio1">設計並實作了 Autonomy 自律型 AI 代理人框架，核心貢獻包括：Beam Search
+            候選評分系統、受管行動閘道（ActionGateway）、後執行學習迴路（LearningLoop）、以及後台技能策展守護程序（CuratorDaemon）。</p>
+          <p class="author__bio" data-i18n="author.bio2">致力於讓 AI
+            代理人在真實工程環境中可靠運行——從程式碼編輯、瀏覽器自動化到系統除錯，透過可組合的技能庫與事件溯源架構實現完整可審計性。</p>
           <div class="author__links">
             <a href="https://www.linkedin.com/in/willweimike" target="_blank" rel="noopener noreferrer"
-               class="social-btn social-btn--linkedin" id="author-linkedin-btn"
-               aria-label="LinkedIn">
+              class="social-btn social-btn--linkedin" id="author-linkedin-btn" aria-label="LinkedIn">
               <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
               <span data-i18n="author.linkedin">LinkedIn</span>
             </a>
             <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer"
-               class="social-btn social-btn--github" id="author-github-btn"
-               aria-label="GitHub">
+              class="social-btn social-btn--github" id="author-github-btn" aria-label="GitHub">
               <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
               </svg>
               <span data-i18n="author.github">GitHub</span>
             </a>
@@ -674,16 +795,18 @@
         <p class="cta-card__desc" data-i18n="cta.desc">Fork Autonomy，添加你的工具集、訓練專屬技能庫，讓代理人在你的領域自主作業。</p>
         <div class="cta-card__actions">
           <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer"
-             class="btn btn--primary btn--lg" id="cta-github-btn">
+            class="btn btn--primary btn--lg" id="cta-github-btn">
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
             </svg>
             <span data-i18n="cta.github">前往 GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/willweimike" target="_blank" rel="noopener noreferrer"
-             class="btn btn--ghost btn--lg" id="cta-linkedin-btn">
+            class="btn btn--ghost btn--lg" id="cta-linkedin-btn">
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             <span data-i18n="cta.contact">聯絡作者</span>
           </a>
@@ -705,9 +828,9 @@
         </div>
         <div class="footer__links">
           <a href="https://www.linkedin.com/in/willweimike" target="_blank" rel="noopener noreferrer"
-             class="footer__link" id="footer-linkedin">LinkedIn</a>
-          <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer"
-             class="footer__link" id="footer-github">GitHub</a>
+            class="footer__link" id="footer-linkedin">LinkedIn</a>
+          <a href="https://github.com/willweimike" target="_blank" rel="noopener noreferrer" class="footer__link"
+            id="footer-github">GitHub</a>
         </div>
       </div>
       <p class="footer__copy" data-i18n="footer.copy">
@@ -720,4 +843,5 @@
   <script src="i18n.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
