@@ -20,9 +20,9 @@
   --clr-teal:        hsl(172, 66%, 50%);
   --clr-pink:        hsl(322, 80%, 60%);
 
-  --clr-text:        hsl(220, 20%, 92%);
-  --clr-text-muted:  hsl(220, 15%, 60%);
-  --clr-text-faint:  hsl(220, 10%, 40%);
+  --clr-text:        hsl(220, 20%, 98%);
+  --clr-text-muted:  hsl(220, 15%, 80%);
+  --clr-text-faint:  hsl(220, 10%, 60%);
 
   /* Gradients */
   --grad-primary:    linear-gradient(135deg, var(--clr-cyan) 0%, var(--clr-purple) 100%);
@@ -104,7 +104,7 @@ svg { flex-shrink: 0; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -205,7 +205,7 @@ svg { flex-shrink: 0; }
   display: inline-block;
   padding: 0.3rem 0.85rem;
   border-radius: var(--radius-full);
-  font-size: 0.8125rem;
+  font-size: 0.9625rem;
   font-weight: 500;
 }
 
@@ -216,7 +216,7 @@ svg { flex-shrink: 0; }
 .pill--pink   { background: hsl(322, 80%, 60%, 0.1);  color: var(--clr-pink);   border: 1px solid hsl(322, 80%, 60%, 0.25); }
 
 .tag {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 500;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
@@ -310,7 +310,7 @@ svg { flex-shrink: 0; }
   border: 1px solid var(--clr-border);
   background: transparent;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--clr-text-muted);
@@ -401,7 +401,7 @@ svg { flex-shrink: 0; }
   border-radius: var(--radius-full);
   border: 1px solid hsl(195, 100%, 50%, 0.3);
   background: hsl(195, 100%, 50%, 0.06);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--clr-cyan);
   letter-spacing: 0.04em;
@@ -423,7 +423,7 @@ svg { flex-shrink: 0; }
   flex-direction: column;
   align-items: center;
   gap: 0;
-  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 0.95;
@@ -444,7 +444,7 @@ svg { flex-shrink: 0; }
 
 /* Subtitle */
 .hero__subtitle {
-  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--clr-text-muted);
   max-width: 55ch;
   line-height: 1.7;
@@ -504,7 +504,7 @@ svg { flex-shrink: 0; }
 }
 
 .hero__stat-label {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--clr-text-faint);
   font-weight: 500;
 }
@@ -530,7 +530,7 @@ svg { flex-shrink: 0; }
 }
 
 .hero__scroll-text {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--clr-text-faint);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -615,7 +615,7 @@ svg { flex-shrink: 0; }
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--clr-cyan);
   box-shadow: 0 0 30px hsl(195, 100%, 50%, 0.15), inset 0 0 20px hsl(195, 100%, 50%, 0.05);
@@ -636,7 +636,7 @@ svg { flex-shrink: 0; }
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--clr-text-muted);
   z-index: 2;
@@ -768,7 +768,7 @@ svg { flex-shrink: 0; }
 }
 
 .arch__layer-label {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -796,7 +796,7 @@ svg { flex-shrink: 0; }
 
 .arch__node-icon { font-size: 1.75rem; }
 .arch__node-title { font-size: 0.95rem; font-weight: 700; color: var(--clr-text); }
-.arch__node-sub { font-size: 0.75rem; color: var(--clr-text-faint); }
+.arch__node-sub { font-size: 0.9rem; color: var(--clr-text-faint); }
 
 .arch__node--main {
   max-width: 380px;
@@ -828,7 +828,7 @@ svg { flex-shrink: 0; }
   border-radius: var(--radius-full);
   background: hsl(240, 20%, 100%, 0.04);
   border: 1px solid var(--clr-border);
-  font-size: 0.8125rem;
+  font-size: 0.9625rem;
   font-weight: 500;
   color: var(--clr-text-muted);
   transition: background 0.2s, border-color 0.2s, color 0.2s;
@@ -921,7 +921,7 @@ svg { flex-shrink: 0; }
 
 .terminal__title {
   margin-left: 0.75rem;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-family: var(--font-mono);
   color: var(--clr-text-faint);
 }
@@ -1200,7 +1200,7 @@ svg { flex-shrink: 0; }
 .footer__logo { font-size: 1rem; }
 
 .footer__tagline {
-  font-size: 0.8125rem;
+  font-size: 0.9625rem;
   color: var(--clr-text-faint);
 }
 
@@ -1218,7 +1218,7 @@ svg { flex-shrink: 0; }
 .footer__link:hover { color: var(--clr-cyan); }
 
 .footer__copy {
-  font-size: 0.8125rem;
+  font-size: 0.9625rem;
   color: var(--clr-text-faint);
   text-align: center;
 }
@@ -1325,7 +1325,7 @@ svg { flex-shrink: 0; }
 @media (max-width: 768px) {
   .nav__links { display: none; }
   .nav__cta { display: none; }   /* hide GitHub CTA on mobile to save space */
-  .lang-toggle { margin-left: auto; font-size: 0.7rem; padding: 0.3rem 0.75rem; }
+  .lang-toggle { margin-left: auto; font-size: 0.85rem; padding: 0.3rem 0.75rem; }
   .features__grid { grid-template-columns: 1fr; }
   .author__card { flex-direction: column; gap: 2rem; padding: 2.5rem 1.75rem; }
   .author__photo { width: 160px; height: 160px; }
@@ -1356,12 +1356,12 @@ svg { flex-shrink: 0; }
 /* ── 20. Hero badge extras ── */
 .hero__badge-mono {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .hero__badge-sep {
   opacity: 0.35;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
 }
 
 /* ── 21. Turn Flow Diagram ── */
@@ -1409,13 +1409,13 @@ svg { flex-shrink: 0; }
 
 .turn-flow__name {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--clr-cyan);
 }
 
 .turn-flow__desc {
-  font-size: 0.775rem;
+  font-size: 0.925rem;
   color: var(--clr-text-faint);
 }
 
@@ -1519,7 +1519,7 @@ svg { flex-shrink: 0; }
 
 .score-bar__name {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--clr-text);
 }
@@ -1558,7 +1558,7 @@ svg { flex-shrink: 0; }
 }
 
 .score-bar__desc {
-  font-size: 0.775rem;
+  font-size: 0.925rem;
   color: var(--clr-text-faint);
 }
 
@@ -1671,7 +1671,7 @@ svg { flex-shrink: 0; }
 }
 
 .tech-item__sub {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: var(--clr-text-faint);
   display: block;
   margin-top: 0.2rem;
@@ -1732,7 +1732,7 @@ svg { flex-shrink: 0; }
 
 .skill-chip__name {
   font-family: var(--font-mono);
-  font-size: 0.725rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--clr-text-muted);
   word-break: break-word;
@@ -1751,7 +1751,7 @@ svg { flex-shrink: 0; }
 
 .skills-note code {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--clr-cyan);
   background: hsl(195, 100%, 50%, 0.08);
   padding: 0.1em 0.4em;
@@ -1761,7 +1761,7 @@ svg { flex-shrink: 0; }
 /* code tags in feature cards */
 .feature-card__desc code {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.93rem;
   color: var(--clr-cyan);
   background: hsl(195, 100%, 50%, 0.08);
   padding: 0.1em 0.35em;

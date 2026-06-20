@@ -224,7 +224,8 @@
           <h3 class="feature-card__title" data-i18n="feat.f1t">自導向代理人迴圈</h3>
           <p class="feature-card__desc" data-i18n-html="feat.f1d"><code>AgentLoop.run(goal, max_steps=12)</code>
             啟動後完全自主執行，每步驟透過 <code>run_turn()</code> 推進。支援互動模式（<code>interactive=True</code>）與批次模式，所有事件均以
-            <code>run_id</code> 記錄於 <code>AutonomyStore</code>。</p>
+            <code>run_id</code> 記錄於 <code>AutonomyStore</code>。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
             <li class="tag">AgentLoop</li>
             <li class="tag">RunState</li>
@@ -239,7 +240,8 @@
           <h3 class="feature-card__title" data-i18n="feat.f2t">受管行動閘道</h3>
           <p class="feature-card__desc" data-i18n-html="feat.f2d">所有工具呼叫必須通過 <code>ActionGateway</code> 的
             <code>ApprovalPolicy</code> 授權。每個動作帶有 <code>RiskLevel</code>（LOW / MEDIUM /
-            HIGH）、<code>expected_effect</code> 與 <code>verification_plan</code>，確保執行可控、可審計。</p>
+            HIGH）、<code>expected_effect</code> 與 <code>verification_plan</code>，確保執行可控、可審計。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
             <li class="tag">ActionGateway</li>
             <li class="tag">ApprovalPolicy</li>
@@ -254,7 +256,8 @@
           <h3 class="feature-card__title" data-i18n="feat.f3t">5 維 Beam Search 評分</h3>
           <p class="feature-card__desc" data-i18n-html="feat.f3d"><code>CandidateSelector</code> 以
             evidence_strength（+0.30）、purpose（+0.10）、risk（−0.35）、side_effects（−0.20）、penalty（−1.0）五個維度計算總分，選出前
-            <code>beam_width=3</code> 名候選路徑送往執行。</p>
+            <code>beam_width=3</code> 名候選路徑送往執行。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
             <li class="tag">CandidateSelector</li>
             <li class="tag">CandidatePath</li>
@@ -299,7 +302,8 @@
           <h3 class="feature-card__title" data-i18n="feat.f6t">後執行學習迴路</h3>
           <p class="feature-card__desc" data-i18n-html="feat.f6d">每次 Run 結束後，<code>LearningLoop.review_run()</code>
             自動觸發：若結果為 ACHIEVED 且有 ≥2 個成功步驟，自動起草新 <code>ProcedureSkillDraft</code>（信心度 0.85），生成
-            <code>LearningProposal</code> 等待審核。</p>
+            <code>LearningProposal</code> 等待審核。
+          </p>
           <ul class="feature-card__tags" aria-label="相關類別">
             <li class="tag">LearningLoop</li>
             <li class="tag">LearningProposal</li>
