@@ -46,7 +46,7 @@ const I18N = {
     },
     feat: {
       tag: '核心模組',
-      h2: '十四大技術特點',
+      h2: '十六大技術特點',
       desc: '每個特點都直接對應 Autonomy 原始碼中的具體實作',
       f1t: '自導向代理人迴圈',
       f1d: '<code>AgentLoop</code> 完全自主執行，支援互動與批次模式。',
@@ -76,6 +76,10 @@ const I18N = {
       f13d: '透過 <code>mcp_servers.yaml</code> 匯入任意 MCP 伺服器工具，全部經由 <code>ActionGateway</code> 受管執行。',
       f14t: '記憶體 & 資料庫工具',
       f14d: '<code>memory</code> 工具集提供持久化工作區記憶，<code>database</code> 工具集以 SQLGlot 驗證唯讀 SQL 並支援多種方言。',
+      f15t: '多端點互動介面',
+      f15d: '不再侷限於命令列，內建 Chrome Extension、Discord 與 Telegram DM 機器人轉接器，讓 Agent 在各平台受管執行。',
+      f16t: '開放技能生態系',
+      f16d: '支援透過 <code>autonomy skills install-*</code> 從 Clawhub 或 Hermes 平台安裝社群共享的 Procedure Skills。',
     },
     score: {
       tag: 'CandidateSelector',
@@ -179,7 +183,7 @@ const I18N = {
     },
     feat: {
       tag: 'Core Modules',
-      h2: '14 Technical Highlights',
+      h2: '16 Technical Highlights',
       desc: 'Every feature maps directly to a concrete implementation in the Autonomy source code',
       f1t: 'Self-Directed Agent Loop',
       f1d: '<code>AgentLoop</code> runs autonomously with interactive and batch modes.',
@@ -209,6 +213,10 @@ const I18N = {
       f13d: 'Import any MCP server tools via <code>mcp_servers.yaml</code>; all governed through <code>ActionGateway</code>.',
       f14t: 'Memory & Database Tools',
       f14d: '<code>memory</code> toolset provides persistent workspace memory; <code>database</code> validates read-only SQL via SQLGlot with multi-dialect support.',
+      f15t: 'Multi-Interface UIs',
+      f15d: 'Goes beyond the CLI with built-in Chrome Extension, Discord, and Telegram DM bot adapters for governed execution anywhere.',
+      f16t: 'Open Skill Ecosystem',
+      f16d: 'Install community-shared Procedure Skills from Clawhub or Hermes using <code>autonomy skills install-*</code> commands.',
     },
     score: {
       tag: 'CandidateSelector',
